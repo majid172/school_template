@@ -14,7 +14,7 @@
                 <div class="md:col-span-2">
                     <h5 class="text-lg font-semibold text-white border-l-4 border-brand-green pl-3 mb-4">গুরুত্বপূর্ণ লিঙ্ক</h5>
                     <div class="grid grid-cols-2 gap-x-8 gap-y-2 text-sm">
-                        <a href="#" class="hover:text-brand-green">যোগাযোগ</a>
+                        <a href="{{ url('/contact') }}" class="hover:text-brand-green">যোগাযোগ</a>
                         <a href="#" class="hover:text-brand-green">ইনস্টিটিউট পরিচালনা কমিটি</a>
                         <a href="#" class="hover:text-brand-green">প্রতিষ্ঠান সম্পর্কে</a>
                         <a href="#" class="hover:text-brand-green">গ্যালারি</a>

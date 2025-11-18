@@ -9,7 +9,7 @@
         <nav aria-label="Breadcrumb">
             <ol class="inline-flex items-center space-x-1 md:space-x-2">
                 <li class="inline-flex items-center">
-                    <a href="#" class="inline-flex items-center text-sm font-medium text-slate-600 hover:text-emerald-600 transition-colors">
+                    <a href="{{ url('/') }}" class="inline-flex items-center text-sm font-medium text-slate-600 hover:text-emerald-600 transition-colors">
                         <i class="fa-regular fa-house w-4 h-4 mr-2"></i>
                         মূলপাতা
                     </a>
