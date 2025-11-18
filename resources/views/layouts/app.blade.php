@@ -41,6 +41,13 @@
 
 <body class="bg-gray-50">
 
+     <div id="preloader"
+        class="fixed inset-0 bg-white z-[9999] flex items-center justify-center transition-all duration-500">
+        <div class="flex flex-col items-center space-y-3">
+            <div class="w-12 h-12 border-4 border-brand-green border-t-transparent rounded-full animate-spin"></div>
+            <p class="text-brand-green font-semibold text-lg tracking-wide">লোড হচ্ছে...</p>
+        </div>
+    </div>
     <!-- Top Bar -->
     @include('includes.topbar')
 
@@ -55,6 +62,17 @@
 
     <script src="https://cdn.jsdelivr.net/npm/flowbite@4.0.1/dist/flowbite.min.js"></script>
 
+    <script>
+        window.addEventListener("load", function () {
+            const preloader = document.getElementById("preloader");
+            preloader.style.opacity = "0";
+            preloader.style.pointerEvents = "none";
+
+            setTimeout(() => {
+                preloader.style.display = "None";
+            }, 500);
+        });
+    </script>
 </body>
 
 </html>

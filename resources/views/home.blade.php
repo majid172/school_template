@@ -1,93 +1,92 @@
 @extends('layouts.app')
 @section('section')
+    <section class="container mx-auto px-4 pt-8">
+        <div id="hero-carousel" class="relative w-full" data-carousel="slide">
 
-
-<section class="container mx-auto px-4 pt-8">
-    <div id="hero-carousel" class="relative w-full" data-carousel="slide">
-
-        <div class="relative h-[350px] overflow-hidden rounded-2xl md:h-[500px]">
-            <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                
-                <div class="absolute block w-full h-full bg-cover bg-center"
-                    style="background-image: url('{{ asset('assets/images/banner/banner1.jpg') }}');">
-                    
-                    <div class="absolute inset-0 bg-opacity-50 flex items-center">
-                        <div class="w-full text-center px-4">
-                            <h1 class="text-white text-3xl md:text-5xl font-bold leading-tight max-w-4xl mx-auto">
+            <div class="relative h-[350px] overflow-hidden rounded-2xl md:h-[500px]">
+                <div class="hidden duration-700 ease-in-out" data-carousel-item>
+                    <div class="relative w-full h-full">
+                        <!-- Background Image -->
+                        <div class="absolute inset-0 bg-cover bg-center"
+                            style="background-image: url('{{ asset('assets/images/banner/banner1.jpg') }}');">
+                        </div>
+                        {{-- <div class="absolute inset-0 bg-black bg-opacity-50"></div> --}}
+                        <div class="absolute inset-0 flex items-center justify-center px-4">
+                            <h1 class="text-white text-3xl md:text-5xl font-bold leading-tight max-w-4xl text-center">
                                 Quality education is about possibilities. It is about success in real life.
                             </h1>
                         </div>
                     </div>
                 </div>
-            </div>
 
-            <!-- Item 2 -->
-            <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                <div class="absolute block w-full h-full bg-cover bg-center"
-                    style="background-image: url('{{ asset('assets/images/banner/banner2.jpg') }}');">
-                    
-                    <div class="absolute inset-0  bg-opacity-50 flex items-center">
-                        <div class="w-full text-center px-4">
-                            <h1 class="text-white text-3xl md:text-5xl font-bold leading-tight max-w-4xl mx-auto">
-                                Discovering the potential within every child.
-                            </h1>
+
+                <!-- Item 2 -->
+                <div class="hidden duration-700 ease-in-out" data-carousel-item>
+                    <div class="absolute block w-full h-full bg-cover bg-center"
+                        style="background-image: url('{{ asset('assets/images/banner/banner2.jpg') }}');">
+
+                        <div class="absolute inset-0  bg-opacity-50 flex items-center">
+                            <div class="w-full text-center px-4">
+                                <h1 class="text-white text-3xl md:text-5xl font-bold leading-tight max-w-4xl mx-auto">
+                                    Discovering the potential within every child.
+                                </h1>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Item 3 -->
+                <div class="hidden duration-700 ease-in-out" data-carousel-item>
+                    <div class="absolute block w-full h-full bg-cover bg-center"
+                        style="background-image: url('{{ asset('assets/images/banner/banner3.jpg') }}');">
+
+                        <div class="absolute inset-0  bg-opacity-50 flex items-center">
+                            <div class="w-full text-center px-4">
+                                <h1 class="text-white text-3xl md:text-5xl font-bold leading-tight max-w-4xl mx-auto">
+                                    Building a foundation for a brighter future.
+                                </h1>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Item 3 -->
-            <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                <div class="absolute block w-full h-full bg-cover bg-center"
-                    style="background-image: url('{{ asset('assets/images/banner/banner3.jpg') }}');">
-                   
-                    <div class="absolute inset-0  bg-opacity-50 flex items-center">
-                        <div class="w-full text-center px-4">
-                            <h1 class="text-white text-3xl md:text-5xl font-bold leading-tight max-w-4xl mx-auto">
-                                Building a foundation for a brighter future.
-                            </h1>
-                        </div>
-                    </div>
-                </div>
+
+            <div class="absolute z-30 flex space-x-2 -translate-y-1/2 bottom-8 left-8">
+                <button type="button" class="w-3 h-3 rounded-full" aria-current="true" aria-label="Slide 1"
+                    data-carousel-slide-to="0"></button>
+                <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 2"
+                    data-carousel-slide-to="1"></button>
+                <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 3"
+                    data-carousel-slide-to="2"></button>
             </div>
-        </div>
 
-       
-        <div class="absolute z-30 flex space-x-2 -translate-y-1/2 bottom-8 left-8">
-            <button type="button" class="w-3 h-3 rounded-full" aria-current="true" aria-label="Slide 1"
-                data-carousel-slide-to="0"></button>
-            <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 2"
-                data-carousel-slide-to="1"></button>
-            <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 3"
-                data-carousel-slide-to="2"></button>
-        </div>
 
-     
-        <div class="absolute z-30 flex space-x-2 bottom-6 right-8">
-            <button type="button"
-                class="flex items-center justify-center h-10 w-10 rounded-md bg-brand-green hover:bg-opacity-80 transition"
-                data-carousel-prev>
-                <svg class="w-5 h-5 text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
-                    viewBox="0 0 24 24">
-                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="m15 19-7-7 7-7" />
-                </svg>
-                <span class="sr-only">Previous</span>
-            </button>
-            <button type="button"
-                class="flex items-center justify-center h-10 w-10 rounded-md bg-brand-green hover:bg-opacity-80 transition"
-                data-carousel-next>
-                <svg class="w-5 h-5 text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
-                    viewBox="0 0 24 24">
-                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="m9 5 7 7-7 7" />
-                </svg>
-                <span class="sr-only">Next</span>
-            </button>
-        </div>
+            <div class="absolute z-30 flex space-x-2 bottom-6 right-8">
+                <button type="button"
+                    class="flex items-center justify-center h-10 w-10 rounded-md bg-brand-green hover:bg-opacity-80 transition"
+                    data-carousel-prev>
+                    <svg class="w-5 h-5 text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
+                        viewBox="0 0 24 24">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="m15 19-7-7 7-7" />
+                    </svg>
+                    <span class="sr-only">Previous</span>
+                </button>
+                <button type="button"
+                    class="flex items-center justify-center h-10 w-10 rounded-md bg-brand-green hover:bg-opacity-80 transition"
+                    data-carousel-next>
+                    <svg class="w-5 h-5 text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
+                        viewBox="0 0 24 24">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="m9 5 7 7-7 7" />
+                    </svg>
+                    <span class="sr-only">Next</span>
+                </button>
+            </div>
 
-    </div>
-</section>
+        </div>
+    </section>
 
     <!-- Main Content Area -->
     <div class="container mx-auto px-4 py-16">
@@ -396,62 +395,218 @@
     </section>
 
 
-    <!-- Top Students Section -->
-    <section class="container mx-auto px-4 py-16">
-        <div class="flex justify-between items-center mb-12">
-            <h2 class="text-4xl font-extrabold text-gray-900">সেরা ছাত্র</h2>
-            <div class="flex space-x-3">
-                <button
-                    class="p-3 bg-white border border-gray-200 rounded-full shadow hover:bg-gray-100 hover:scale-110 transition transform">
-                    &lt;
-                </button>
-                <button
-                    class="p-3 bg-white border border-gray-200 rounded-full shadow hover:bg-gray-100 hover:scale-110 transition transform">
-                    &gt;
-                </button>
-            </div>
-        </div>
+    <section class="bg-slate-50 py-16">
+        <div class="container mx-auto px-4">
 
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-            <!-- Student Card -->
-            <div
-                class="bg-gradient-to-b from-white to-gray-50 p-6 rounded-2xl shadow-lg border border-gray-100 text-center hover:scale-105 transition transform">
-                <img src="https://i.imgur.com/kKGWaDR.png" alt="Student"
-                    class="w-28 h-28 rounded-full mx-auto mb-4 ring-4 ring-indigo-200 shadow-lg">
-                <h4 class="font-bold text-xl text-gray-900 mb-1">md mdaassss</h4>
-                <p class="text-sm text-indigo-500 mb-2">(Two)</p>
-                <p class="text-sm text-gray-700 mt-1">Roll: <span class="font-semibold">1</span></p>
-                <p class="text-xs text-gray-400">Session: Jan-2024-Dec-2024</p>
+            <!-- Header -->
+            <div class="flex justify-between items-center mb-10">
+                <h4 class="text-3xl font-extrabold text-gray-800">সেরা ছাত্র</h4>
             </div>
 
-            <div
-                class="bg-gradient-to-b from-white to-gray-50 p-6 rounded-2xl shadow-lg border border-gray-100 text-center hover:scale-105 transition transform">
-                <img src="https://i.imgur.com/rLd2jjt.png" alt="Student"
-                    class="w-28 h-28 rounded-full mx-auto mb-4 ring-4 ring-indigo-200 shadow-lg">
-                <h4 class="font-bold text-xl text-gray-900 mb-1">two three</h4>
-                <p class="text-sm text-indigo-500 mb-2">(Two)</p>
-                <p class="text-sm text-gray-700 mt-1">Roll: <span class="font-semibold">2</span></p>
-                <p class="text-xs text-gray-400">Session: Jan-2024-Dec-2024</p>
-            </div>
+            <div class="grid sm:grid-cols-1 lg:grid-cols-4 xl:grid-cols-4 gap-6">
 
-            <div
-                class="bg-gradient-to-b from-white to-gray-50 p-6 rounded-2xl shadow-lg border border-gray-100 text-center hover:scale-105 transition transform">
-                <img src="https://i.imgur.com/rLd2jjt.png" alt="Student"
-                    class="w-28 h-28 rounded-full mx-auto mb-4 ring-4 ring-indigo-200 shadow-lg">
-                <h4 class="font-bold text-xl text-gray-900 mb-1">Tareq Mahmud Emon</h4>
-                <p class="text-sm text-indigo-500 mb-2">(Two)</p>
-                <p class="text-sm text-gray-700 mt-1">Roll: <span class="font-semibold">3</span></p>
-                <p class="text-xs text-gray-400">Session: Jan-2024-Dec-2024</p>
-            </div>
+                <!-- Student Card -->
+                <div
+                    class="flex items-center gap-6 bg-white/80 backdrop-blur-xl border border-slate-100 
+                        p-6 rounded-3xl shadow-lg hover:shadow-2xl hover:-translate-y-1 
+                        transition-all duration-300">
 
-            <div
-                class="bg-gradient-to-b from-white to-gray-50 p-6 rounded-2xl shadow-lg border border-gray-100 text-center hover:scale-105 transition transform">
-                <img src="https://i.imgur.com/rLd2jjt.png" alt="Student"
-                    class="w-28 h-28 rounded-full mx-auto mb-4 ring-4 ring-indigo-200 shadow-lg">
-                <h4 class="font-bold text-xl text-gray-900 mb-1">মাসুমা</h4>
-                <p class="text-sm text-indigo-500 mb-2">(Six)</p>
-                <p class="text-sm text-gray-700 mt-1">Roll: <span class="font-semibold">1</span></p>
-                <p class="text-xs text-gray-400">Session: Jan-2024-Dec-2024</p>
+                    <!-- Image -->
+                    <img src="{{ asset('assets/images/students/student1.webp') }}"
+                        class="w-28 h-28 object-cover rounded-2xl shadow-md">
+
+                    <!-- Info -->
+                    <div class="flex-1">
+                        <h4 class="text-xl font-bold text-gray-900">Atikur Rahman</h4>
+                        <p class="text-gray-500 text-sm">Class : Play</p>
+                        <p class="text-gray-500 text-sm">Roll : 03</p>
+                        <p class="text-gray-500 text-sm mb-4">Session : Jan 2025 - Dec 2025</p>
+
+                        <!-- Buttons -->
+                        <div class="flex items-center gap-3">
+
+                            <!-- Mail Button -->
+                            <a href="mailto:atikur@example.com"
+                                class="flex items-center justify-center h-9 w-9 bg-emerald-100 
+                                  rounded-xl hover:bg-emerald-200 transition">
+                                <svg class="w-5 h-5 text-emerald-700" fill="none" viewBox="0 0 24 24"
+                                    stroke-width="1.8" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25
+                                              0 01-2.25-2.25V6.75m19.5 0A2.25 2.25
+                                              0 0019.5 4.5h-15a2.25 2.25 0 00-2.25
+                                              2.25m19.5 0v.243a2.25 2.25 0 01-1.07
+                                              1.916l-7.5 4.615a2.25 2.25 0
+                                              01-2.36 0L3.32 8.91a2.25 2.25
+                                              0 01-1.07-1.916V6.75" />
+                                </svg>
+                            </a>
+
+                            <!-- Read More -->
+                            <a href="#"
+                                class="inline-flex items-center px-4 py-2 bg-emerald-50 
+                                  text-emerald-700 font-semibold rounded-full text-sm
+                                  hover:bg-emerald-100 transition">
+                                আরও পড়ুন
+                                <svg class="w-4 h-4 ml-1" fill="none" viewBox="0 0 24 24" stroke-width="2"
+                                    stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M17.25 8.25L21 12l-3.75 3.75M21 12H3" />
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div
+                    class="flex items-center gap-6 bg-white/80 backdrop-blur-xl border border-slate-100 
+                        p-6 rounded-3xl shadow-lg hover:shadow-2xl hover:-translate-y-1 
+                        transition-all duration-300">
+
+                    <!-- Image -->
+                    <img src="{{ asset('assets/images/students/student1.webp') }}"
+                        class="w-28 h-28 object-cover rounded-2xl shadow-md">
+
+                    <!-- Info -->
+                    <div class="flex-1">
+                        <h4 class="text-xl font-bold text-gray-900">Atikur Rahman</h4>
+                        <p class="text-gray-500 text-sm">Class : Play</p>
+                        <p class="text-gray-500 text-sm">Roll : 03</p>
+                        <p class="text-gray-500 text-sm mb-4">Session : Jan 2025 - Dec 2025</p>
+
+                        <!-- Buttons -->
+                        <div class="flex items-center gap-3">
+
+                            <!-- Mail Button -->
+                            <a href="mailto:atikur@example.com"
+                                class="flex items-center justify-center h-9 w-9 bg-emerald-100 
+                                  rounded-xl hover:bg-emerald-200 transition">
+                                <svg class="w-5 h-5 text-emerald-700" fill="none" viewBox="0 0 24 24"
+                                    stroke-width="1.8" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25
+                                              0 01-2.25-2.25V6.75m19.5 0A2.25 2.25
+                                              0 0019.5 4.5h-15a2.25 2.25 0 00-2.25
+                                              2.25m19.5 0v.243a2.25 2.25 0 01-1.07
+                                              1.916l-7.5 4.615a2.25 2.25 0
+                                              01-2.36 0L3.32 8.91a2.25 2.25
+                                              0 01-1.07-1.916V6.75" />
+                                </svg>
+                            </a>
+
+                            <!-- Read More -->
+                            <a href="#"
+                                class="inline-flex items-center px-4 py-2 bg-emerald-50 
+                                  text-emerald-700 font-semibold rounded-full text-sm
+                                  hover:bg-emerald-100 transition">
+                                আরও পড়ুন
+                                <svg class="w-4 h-4 ml-1" fill="none" viewBox="0 0 24 24" stroke-width="2"
+                                    stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M17.25 8.25L21 12l-3.75 3.75M21 12H3" />
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div
+                    class="flex items-center gap-6 bg-white/80 backdrop-blur-xl border border-slate-100 
+                        p-6 rounded-3xl shadow-lg hover:shadow-2xl hover:-translate-y-1 
+                        transition-all duration-300">
+
+                    <!-- Image -->
+                    <img src="{{ asset('assets/images/students/student1.webp') }}"
+                        class="w-28 h-28 object-cover rounded-2xl shadow-md">
+
+                    <!-- Info -->
+                    <div class="flex-1">
+                        <h4 class="text-xl font-bold text-gray-900">Atikur Rahman</h4>
+                        <p class="text-gray-500 text-sm">Class : Play</p>
+                        <p class="text-gray-500 text-sm">Roll : 03</p>
+                        <p class="text-gray-500 text-sm mb-4">Session : Jan 2025 - Dec 2025</p>
+
+                        <!-- Buttons -->
+                        <div class="flex items-center gap-3">
+
+                            <!-- Mail Button -->
+                            <a href="mailto:atikur@example.com"
+                                class="flex items-center justify-center h-9 w-9 bg-emerald-100 
+                                  rounded-xl hover:bg-emerald-200 transition">
+                                <svg class="w-5 h-5 text-emerald-700" fill="none" viewBox="0 0 24 24"
+                                    stroke-width="1.8" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25
+                                              0 01-2.25-2.25V6.75m19.5 0A2.25 2.25
+                                              0 0019.5 4.5h-15a2.25 2.25 0 00-2.25
+                                              2.25m19.5 0v.243a2.25 2.25 0 01-1.07
+                                              1.916l-7.5 4.615a2.25 2.25 0
+                                              01-2.36 0L3.32 8.91a2.25 2.25
+                                              0 01-1.07-1.916V6.75" />
+                                </svg>
+                            </a>
+
+                            <!-- Read More -->
+                            <a href="#"
+                                class="inline-flex items-center px-4 py-2 bg-emerald-50 
+                                  text-emerald-700 font-semibold rounded-full text-sm
+                                  hover:bg-emerald-100 transition">
+                                আরও পড়ুন
+                                <svg class="w-4 h-4 ml-1" fill="none" viewBox="0 0 24 24" stroke-width="2"
+                                    stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M17.25 8.25L21 12l-3.75 3.75M21 12H3" />
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div
+                    class="flex items-center gap-6 bg-white/80 backdrop-blur-xl border border-slate-100 
+                        p-6 rounded-3xl shadow-lg hover:shadow-2xl hover:-translate-y-1 
+                        transition-all duration-300">
+
+                    <!-- Image -->
+                    <img src="{{ asset('assets/images/students/student1.webp') }}"
+                        class="w-28 h-28 object-cover rounded-2xl shadow-md">
+
+                    <!-- Info -->
+                    <div class="flex-1">
+                        <h4 class="text-xl font-bold text-gray-900">Atikur Rahman</h4>
+                        <p class="text-gray-500 text-sm">Class : Play</p>
+                        <p class="text-gray-500 text-sm">Roll : 03</p>
+                        <p class="text-gray-500 text-sm mb-4">Session : Jan 2025 - Dec 2025</p>
+
+                        <!-- Buttons -->
+                        <div class="flex items-center gap-3">
+
+                            <!-- Mail Button -->
+                            <a href="mailto:atikur@example.com"
+                                class="flex items-center justify-center h-9 w-9 bg-emerald-100 
+                                  rounded-xl hover:bg-emerald-200 transition">
+                                <svg class="w-5 h-5 text-emerald-700" fill="none" viewBox="0 0 24 24"
+                                    stroke-width="1.8" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25
+                                              0 01-2.25-2.25V6.75m19.5 0A2.25 2.25
+                                              0 0019.5 4.5h-15a2.25 2.25 0 00-2.25
+                                              2.25m19.5 0v.243a2.25 2.25 0 01-1.07
+                                              1.916l-7.5 4.615a2.25 2.25 0
+                                              01-2.36 0L3.32 8.91a2.25 2.25
+                                              0 01-1.07-1.916V6.75" />
+                                </svg>
+                            </a>
+
+                            <!-- Read More -->
+                            <a href="#"
+                                class="inline-flex items-center px-4 py-2 bg-emerald-50 
+                                  text-emerald-700 font-semibold rounded-full text-sm
+                                  hover:bg-emerald-100 transition">
+                                আরও পড়ুন
+                                <svg class="w-4 h-4 ml-1" fill="none" viewBox="0 0 24 24" stroke-width="2"
+                                    stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M17.25 8.25L21 12l-3.75 3.75M21 12H3" />
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Copy the same structure for other students -->
             </div>
         </div>
     </section>
