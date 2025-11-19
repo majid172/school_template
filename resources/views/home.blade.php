@@ -131,46 +131,25 @@
                         নোটিস‌বোর্ড
                     </h3>
                     <ul class="space-y-3">
-                        <li class="flex justify-between items-center text-sm">
-                            <span class="flex items-center gap-2"><span
-                                    class="text-red-500 bg-red-100 rounded-full p-1"><svg xmlns="http://www.w3.org/2000/svg"
-                                        class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
-                                        <path fill-rule="evenodd"
-                                            d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 3.001-1.742 3.001H4.42c-1.53 0-2.493-1.667-1.743-3.001l5.58-9.92zM10 13a1 1 0 110-2 1 1 0 010 2zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z"
-                                            clip-rule="evenodd" />
-                                    </svg></span> test notification</span>
-                            <a href="#"
-                                class="bg-green-100 text-brand-green px-3 py-1 rounded-full hover:bg-green-200">বিস্তারিত
-                                দেখুন</a>
-                        </li>
-                        <li class="flex justify-between items-center text-sm">
-                            <span class="flex items-center gap-2"><span
-                                    class="text-red-500 bg-red-100 rounded-full p-1"><svg xmlns="http://www.w3.org/2000/svg"
-                                        class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
-                                        <path fill-rule="evenodd"
-                                            d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 3.001-1.742 3.001H4.42c-1.53 0-2.493-1.667-1.743-3.001l5.58-9.92zM10 13a1 1 0 110-2 1 1 0 010 2zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z"
-                                            clip-rule="evenodd" />
-                                    </svg></span> ফ্রি চক্ষু চিকিৎসা</span>
-                            <a href="#"
-                                class="bg-green-100 text-brand-green px-3 py-1 rounded-full hover:bg-green-200">বিস্তারিত
-                                দেখুন</a>
-                        </li>
-                        <li class="flex justify-between items-center text-sm">
-                            <span class="flex items-center gap-2"><span
-                                    class="text-red-500 bg-red-100 rounded-full p-1"><svg
-                                        xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20"
-                                        fill="currentColor">
-                                        <path fill-rule="evenodd"
-                                            d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 3.001-1.742 3.001H4.42c-1.53 0-2.493-1.667-1.743-3.001l5.58-9.92zM10 13a1 1 0 110-2 1 1 0 010 2zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z"
-                                            clip-rule="evenodd" />
-                                    </svg></span> একটি কারিকুলাম আ্যাক্টিভিটি ক্লাস</span>
-                            <a href="#"
-                                class="bg-green-100 text-brand-green px-3 py-1 rounded-full hover:bg-green-200">বিস্তারিত
-                                দেখুন</a>
-                        </li>
+                        @foreach ($notices as $notice)
+                            <li class="flex justify-between items-center text-sm">
+                                <span class="flex items-center gap-2"><span
+                                        class="text-red-500 bg-red-100 rounded-full p-1"><svg
+                                            xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20"
+                                            fill="currentColor">
+                                            <path fill-rule="evenodd"
+                                                d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 3.001-1.742 3.001H4.42c-1.53 0-2.493-1.667-1.743-3.001l5.58-9.92zM10 13a1 1 0 110-2 1 1 0 010 2zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z"
+                                                clip-rule="evenodd" />
+                                        </svg></span> {{ $notice->title }}</span>
+                                <a href="{{ route('notice.show',$notice->id) }}"
+                                    class="bg-green-100 text-brand-green px-3 py-1 rounded-full hover:bg-green-200">বিস্তারিত দেখুন</a>
+                            </li>
+                        @endforeach
+
+
 
                     </ul>
-                    <a href="#"
+                    <a href="{{ route('notice.list') }}"
                         class="w-full mt-6 bg-brand-green text-white text-center block py-2 rounded-md font-semibold hover:bg-opacity-90">সমস্ত
                         বিস্তারিত দেখুন →</a>
                 </div>
@@ -432,12 +411,12 @@
                                 <svg class="w-5 h-5 text-emerald-700" fill="none" viewBox="0 0 24 24"
                                     stroke-width="1.8" stroke="currentColor">
                                     <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25
-                                              0 01-2.25-2.25V6.75m19.5 0A2.25 2.25
-                                              0 0019.5 4.5h-15a2.25 2.25 0 00-2.25
-                                              2.25m19.5 0v.243a2.25 2.25 0 01-1.07
-                                              1.916l-7.5 4.615a2.25 2.25 0
-                                              01-2.36 0L3.32 8.91a2.25 2.25
-                                              0 01-1.07-1.916V6.75" />
+                                                  0 01-2.25-2.25V6.75m19.5 0A2.25 2.25
+                                                  0 0019.5 4.5h-15a2.25 2.25 0 00-2.25
+                                                  2.25m19.5 0v.243a2.25 2.25 0 01-1.07
+                                                  1.916l-7.5 4.615a2.25 2.25 0
+                                                  01-2.36 0L3.32 8.91a2.25 2.25
+                                                  0 01-1.07-1.916V6.75" />
                                 </svg>
                             </a>
 
@@ -482,12 +461,12 @@
                                 <svg class="w-5 h-5 text-emerald-700" fill="none" viewBox="0 0 24 24"
                                     stroke-width="1.8" stroke="currentColor">
                                     <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25
-                                              0 01-2.25-2.25V6.75m19.5 0A2.25 2.25
-                                              0 0019.5 4.5h-15a2.25 2.25 0 00-2.25
-                                              2.25m19.5 0v.243a2.25 2.25 0 01-1.07
-                                              1.916l-7.5 4.615a2.25 2.25 0
-                                              01-2.36 0L3.32 8.91a2.25 2.25
-                                              0 01-1.07-1.916V6.75" />
+                                                  0 01-2.25-2.25V6.75m19.5 0A2.25 2.25
+                                                  0 0019.5 4.5h-15a2.25 2.25 0 00-2.25
+                                                  2.25m19.5 0v.243a2.25 2.25 0 01-1.07
+                                                  1.916l-7.5 4.615a2.25 2.25 0
+                                                  01-2.36 0L3.32 8.91a2.25 2.25
+                                                  0 01-1.07-1.916V6.75" />
                                 </svg>
                             </a>
 
@@ -532,12 +511,12 @@
                                 <svg class="w-5 h-5 text-emerald-700" fill="none" viewBox="0 0 24 24"
                                     stroke-width="1.8" stroke="currentColor">
                                     <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25
-                                              0 01-2.25-2.25V6.75m19.5 0A2.25 2.25
-                                              0 0019.5 4.5h-15a2.25 2.25 0 00-2.25
-                                              2.25m19.5 0v.243a2.25 2.25 0 01-1.07
-                                              1.916l-7.5 4.615a2.25 2.25 0
-                                              01-2.36 0L3.32 8.91a2.25 2.25
-                                              0 01-1.07-1.916V6.75" />
+                                                  0 01-2.25-2.25V6.75m19.5 0A2.25 2.25
+                                                  0 0019.5 4.5h-15a2.25 2.25 0 00-2.25
+                                                  2.25m19.5 0v.243a2.25 2.25 0 01-1.07
+                                                  1.916l-7.5 4.615a2.25 2.25 0
+                                                  01-2.36 0L3.32 8.91a2.25 2.25
+                                                  0 01-1.07-1.916V6.75" />
                                 </svg>
                             </a>
 
@@ -582,12 +561,12 @@
                                 <svg class="w-5 h-5 text-emerald-700" fill="none" viewBox="0 0 24 24"
                                     stroke-width="1.8" stroke="currentColor">
                                     <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25
-                                              0 01-2.25-2.25V6.75m19.5 0A2.25 2.25
-                                              0 0019.5 4.5h-15a2.25 2.25 0 00-2.25
-                                              2.25m19.5 0v.243a2.25 2.25 0 01-1.07
-                                              1.916l-7.5 4.615a2.25 2.25 0
-                                              01-2.36 0L3.32 8.91a2.25 2.25
-                                              0 01-1.07-1.916V6.75" />
+                                                  0 01-2.25-2.25V6.75m19.5 0A2.25 2.25
+                                                  0 0019.5 4.5h-15a2.25 2.25 0 00-2.25
+                                                  2.25m19.5 0v.243a2.25 2.25 0 01-1.07
+                                                  1.916l-7.5 4.615a2.25 2.25 0
+                                                  01-2.36 0L3.32 8.91a2.25 2.25
+                                                  0 01-1.07-1.916V6.75" />
                                 </svg>
                             </a>
 
