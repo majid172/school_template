@@ -1,29 +1,14 @@
 <?php
-namespace App\Http\Controllers\Teachers;
+namespace App\Repository;
 
-use App\Http\Controllers\Controller;
-use App\Service\TeacherService;
 use Illuminate\Support\Facades\DB;
 
-class TeacherController extends Controller
+class TeacherRepository
 {
-    protected $teacherService;
 
-    public function __construct(TeacherService $teacherService)
+    public function list($limit)
     {
-        $this->teacherService = $teacherService;
-    }
-
-    public function list()
-    {
-        $title    = "শিক্ষকগণ";
-        $teachers = $this->teacherService->list();
-        return view('teachers.list', compact('title', 'teachers'));
-    }
-    public function show($id)
-    {
-        $title   = "শিক্ষক / শিক্ষিকা বিস্তারিত";
-        $teacher = DB::table('teachers')->where('teachers.id', $id)
+        $teachers = DB::table('teachers')
             ->join('staff', 'teachers.staff_id', '=', 'staff.id')
             ->join('employment_statuses', 'staff.employment_status_id', '=', 'employment_statuses.id')
             ->join('department_designation', 'staff.department_designation_id', '=', 'department_designation.id')
@@ -36,15 +21,10 @@ class TeacherController extends Controller
                 'staff.email',
                 'staff.phone',
                 'staff.photo',
-                'staff.joining_date',
-                'staff.employee_id',
                 'employment_statuses.name as employment_status',
                 'departments.name as department',
                 'designations.name as designation'
-            )
-
-            ->first();
-
-        return view('teachers.show', compact('title', 'teacher'));
+            )->limit($limit)->get();
+        return $teachers;
     }
 }

@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/',[HomeController::class,'home'])->name('home');
 Route::get('/about',[AboutController::class,'about'])->name('about');
-Route::get('/principal-speech',[AboutController::class,'speech'])->name('speech');
+Route::get('/speech',[AboutController::class,'speech'])->name('speech');
 
 Route::get('gallery-list',[GalleryController::class,'list'])->name('gallery.list');
 Route::get('/contact',[ContactController::class,'contact'])->name('contact');

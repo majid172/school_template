@@ -88,224 +88,239 @@
         </div>
     </section>
 
-    <!-- Main Content Area -->
-    <div class="container mx-auto px-4 py-16">
-        <div class="grid grid-cols-1 lg:grid-cols-3 gap-10">
-            <!-- Left Column -->
-            <div class="lg:col-span-2 space-y-12">
-                <!-- About Section -->
-                <section class="flex flex-col md:flex-row items-center gap-8">
-                    <div class="flex-shrink-0 w-full md:w-1/2">
-                        <div class="relative w-full h-80 rounded-3xl overflow-hidden">
-                            <img src="{{ asset('assets/images/campus.jpg') }}" alt="School Building"
-                                class="absolute w-full h-full object-cover">
-                            {{-- <div class="absolute inset-0 bg-gray-800 bg-opacity-40"></div> --}}
+    <div class="bg-slate-50">
+        <div class="container mx-auto px-4 py-16">
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-10">
+                <div class="lg:col-span-2 space-y-12">
+                    <!-- About Section -->
+                    <section>
+                        <div class="relative flex flex-col md:flex-row items-center">
+
+                            <div class="w-full md:w-3/5 flex-shrink-0">
+                                <img src="data:image/jpeg;base64,{{ base64_encode($about->image) }}" alt="School Building"
+                                    class="w-full h-80 object-cover rounded-xl shadow-md">
+
+                            </div>
+                            <!-- Text Box -->
+                            <div
+                                class="w-full md:w-3/5 bg-white p-8 rounded-xl shadow-lg md:-ml-20 mt-[-40px] md:mt-0 relative z-10">
+                                <h2 class="text-2xl font-bold text-gray-800 mb-4">{{ $about->title }}</h2>
+                                <p class="text-gray-600 leading-relaxed text-sm mb-6">{{ $about->short_description }}</p>
+                                <a href="{{ route('about') }}"
+                                    class="inline-block bg-teal-50 text-teal-600 font-semibold px-5 py-2 rounded-full text-sm hover:bg-teal-100 transition-colors">
+                                    বিস্তারিত পড়ুন
+                                </a>
+                            </div>
                         </div>
-                    </div>
-                    <div class="w-full md:w-1/2">
-                        <h2 class="text-3xl font-bold text-gray-800 border-l-4 border-brand-green pl-4 mb-4">প্রতিষ্ঠান
-                            সম্পর্কে</h2>
-                        <p class="text-gray-600">It is a long established fact that a reader will be distracted by the
-                            readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it
-                            has a more-or-less normal distribution of letters, as opposed to using 'Content here, content
-                            here', making it look like readable English. Many desktop publishing packages and web page
-                            editors now use 'Lorem Ipsum' as their default model text...</p>
-                    </div>
-                </section>
+                    </section>
 
-                <!-- Head Teacher's Message -->
+                    <section>
+                        <!-- Section Header -->
+                        <div class="flex justify-between items-center mb-6">
+                            <h2 class="text-2xl font-bold text-gray-800 flex items-center gap-3">
+                                <svg class="w-7 h-7 text-teal-600" fill="currentColor" viewBox="0 0 24 24"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5-10-5-10 5z" />
+                                </svg>
+                                পরিচালকদের বাণী
+                            </h2>
+                            <div class="flex items-center gap-2">
+                                <button
+                                    class="p-2 rounded-full border border-gray-300 text-gray-500 hover:bg-gray-100 transition">&lt;</button>
+                                <button
+                                    class="p-2 rounded-full border border-gray-300 text-gray-500 hover:bg-gray-100 transition">&gt;</button>
+                            </div>
+                        </div>
+                        <!-- Message Cards -->
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            @foreach ($messages as $item)
+                                <div class="bg-white p-6 rounded-xl border border-gray-200">
+                                    <div class="flex gap-4">
+                                        <img src="data:image/jpeg;base64,{{ base64_encode($item->image) }}"
+                                            alt="{{ $item->name }}"
+                                            class="w-24 h-24 rounded-full object-cover flex-shrink-0" />
 
-            </div>
+                                        <div class="relative">
+                                            <span
+                                                class="absolute -top-2 left-0 text-6xl font-serif text-teal-600 opacity-50">”</span>
+                                            <h3 class="text-lg font-bold text-gray-800 pt-5">
+                                                {{ $item->designation == 'Principal' ? 'অধ্যক্ষের' : 'উপাধ্যক্ষের ' }} বাণী
+                                            </h3>
+                                            <p class="text-sm font-semibold text-gray-600">{{ $item->name }}</p>
+                                        </div>
+                                    </div>
+                                    <p class="text-sm text-gray-600 mt-4 leading-relaxed line-clamp-4">
+                                        {{ $item->short_message }}
+                                    </p>
 
-            <!-- Right Sidebar -->
-            <aside class="space-y-8">
-                <!-- Notice Board -->
-                <div class="bg-white p-6 rounded-lg shadow-md border border-gray-100">
-                    <h3 class="text-2xl font-bold text-gray-800 mb-4 flex items-center gap-2">
-                        <span class="text-red-500">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" viewBox="0 0 20 20" fill="currentColor">
-                                <path
-                                    d="M10 2a6 6 0 00-6 6v3.586l-.707.707A1 1 0 004 14h12a1 1 0 00.707-1.707L16 12.586V8a6 6 0 00-6-6zM10 18a3 3 0 01-3-3h6a3 3 0 01-3 3z" />
-                            </svg>
-                        </span>
-                        নোটিস‌বোর্ড
-                    </h3>
-                    <ul class="space-y-3">
-                        @foreach ($notices as $notice)
-                            <li class="flex justify-between items-center text-sm">
-                                <span class="flex items-center gap-2"><span
-                                        class="text-red-500 bg-red-100 rounded-full p-1"><svg
-                                            xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20"
-                                            fill="currentColor">
-                                            <path fill-rule="evenodd"
-                                                d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 3.001-1.742 3.001H4.42c-1.53 0-2.493-1.667-1.743-3.001l5.58-9.92zM10 13a1 1 0 110-2 1 1 0 010 2zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z"
-                                                clip-rule="evenodd" />
-                                        </svg></span> {{ $notice->title }}</span>
-                                <a href="{{ route('notice.show',$notice->id) }}"
-                                    class="bg-green-100 text-brand-green px-3 py-1 rounded-full hover:bg-green-200">বিস্তারিত দেখুন</a>
-                            </li>
-                        @endforeach
+                                    <a href="{{ route('speech') }}"
+                                        class="inline-block bg-teal-50 text-teal-600 font-semibold px-5 py-2 rounded-full text-sm hover:bg-teal-100 transition-colors mt-2">
+                                        বিস্তারিত পড়ুন
+                                    </a>
+                                </div>
+                            @endforeach
 
 
-
-                    </ul>
-                    <a href="{{ route('notice.list') }}"
-                        class="w-full mt-6 bg-brand-green text-white text-center block py-2 rounded-md font-semibold hover:bg-opacity-90">সমস্ত
-                        বিস্তারিত দেখুন →</a>
+                        </div>
+                    </section>
                 </div>
 
-                <!-- Important Links -->
 
-            </aside>
+                <aside class="space-y-8">
+                    <!-- Notice Board -->
+                    <div class="bg-white p-6 rounded-xl border border-gray-200">
+                        <h3 class="text-xl font-bold text-gray-800 mb-5 flex items-center gap-2">
+                            <svg class="w-6 h-6 text-red-500" fill="currentColor" viewBox="0 0 20 20"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M10 2a6 6 0 00-6 6v3.586l-.707.707A1 1 0 004 14h12a1 1 0 00.707-1.707L16 12.586V8a6 6 0 00-6-6zM10 18a3 3 0 01-3-3h6a3 3 0 01-3 3z">
+                                </path>
+                            </svg>
+                            নোটিশ বোর্ড
+                        </h3>
+                        <ul class="space-y-3">
+                            @foreach ($notices as $notice)
+                                <li
+                                    class="flex justify-between items-center text-sm p-2 border-b border-gray-100 last:border-b-0">
+                                    <span class="flex items-center gap-3 text-gray-700">
+                                        <span class="flex-shrink-0 bg-red-100 text-red-600 rounded-full p-1.5">
+                                            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path fill-rule="evenodd"
+                                                    d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 3.001-1.742 3.001H4.42c-1.53 0-2.493-1.667-1.743-3.001l5.58-9.92zM10 13a1 1 0 110-2 1 1 0 010 2zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z"
+                                                    clip-rule="evenodd"></path>
+                                            </svg>
+                                        </span>
+                                        {{ $notice->title }}
+                                    </span>
+                                    <a href="{{ route('notice.show', $notice->id) }}"
+                                        class="flex-shrink-0 bg-teal-50 text-teal-600 px-3 py-1 rounded-full text-xs font-semibold hover:bg-teal-100 transition">
+                                        বিস্তারিত
+                                    </a>
+                                </li>
+                            @endforeach
+                        </ul>
+                        <a href="{{ route('notice.list') }}"
+                            class="w-full mt-6 bg-teal-600 text-white text-center block py-2 rounded-md font-semibold hover:bg-teal-700 transition-colors">
+                            সকল নোটিশ →
+                        </a>
+                    </div>
+
+                    <!-- Important Links -->
+                    <div class="bg-white p-6 rounded-xl border border-gray-200">
+                        <h3 class="text-xl font-bold text-gray-800 mb-5 flex items-center gap-2">
+                            <svg class="w-6 h-6 text-teal-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                            </svg>
+                            গুরুত্বপূর্ণ লিঙ্ক সমূহ
+                        </h3>
+                        <ul class="space-y-3">
+
+                            <li
+                                class="flex justify-between items-center text-sm p-2 border-b border-gray-100 last:border-b-0">
+                                <span class="flex items-center gap-3 text-gray-700">
+                                    <span class="flex-shrink-0 text-red-500">
+                                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1">
+                                            </path>
+                                        </svg>
+                                    </span>
+                                    ffdsa
+                                </span>
+                                <a href="#"
+                                    class="flex-shrink-0 bg-teal-50 text-teal-600 px-3 py-1 rounded-full text-xs font-semibold hover:bg-teal-100 transition">
+                                    ভিজিট করুন
+                                </a>
+                            </li>
+
+                        </ul>
+                    </div>
+                </aside>
+            </div>
         </div>
     </div>
 
-    <section class="container mx-auto px-4 py-10">
-        <div class=" items-center mb-6">
-            <h2 class="text-3xl font-bold text-gray-800">পরিচালকের বার্তা</h2>
-        </div>
-        <!-- Wrapper Grid -->
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <!-- LEFT SIDE (2/3) -->
-            <div class="md:col-span-2 space-y-6">
-                <div class="bg-white p-8 rounded-lg shadow-md border border-gray-100">
-                    <div class="flex flex-col md:flex-row gap-6">
-                        <img src="{{ asset('assets/images/teachers/principle.jpg') }}" alt="Head Teacher"
-                            class="w-32 h-32 rounded-full object-cover mx-auto md:mx-0">
-
-                        <div class="text-center md:text-left">
-                            <h3 class="text-xl font-bold text-gray-900">Head Teacher</h3>
-                            <p class="text-md text-gray-600 mb-4">Md. Asad</p>
-
-                            <p class="text-gray-600 leading-relaxed">
-                                এটি দীর্ঘদিন ধরে প্রতিষ্ঠিত সত্য যে কোনও পাঠক যখন কোনও পৃষ্ঠার লেআউটটি দেখেন তখন তার
-                                পাঠযোগ্য বিষয়বস্তু দ্বারা বিভ্রান্ত হন...
-                            </p>
-
-                            <a href="#"
-                                class="inline-block mt-4 text-brand-green font-semibold border border-green-200 px-4 py-2 rounded-full hover:bg-green-50">
-                                আরও পড়ুন →
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- RIGHT SIDE (1/3) -->
-            <div class="md:col-span-1">
-
-                <div class="bg-white p-6 rounded-lg shadow-md border border-gray-100">
-                    <h3 class="text-2xl font-bold text-gray-800 mb-4 flex items-center gap-2">
-                        Important links
-                    </h3>
-
-                    <ul class="space-y-3">
-
-                        <!-- Link 1 -->
-                        <li class="flex justify-between items-center text-sm p-2 border rounded-md">
-                            <span class="flex items-center gap-2 text-gray-700">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-red-500" viewBox="0 0 20 20"
-                                    fill="currentColor">
-                                    <path fill-rule="evenodd"
-                                        d="M12.586 4.586a2 2 0 112.828 2.828l-3 3a2 2 0 01-2.828 0l-1.5-1.5a2 2 0 112.828-2.828l1.5 1.5z"
-                                        clip-rule="evenodd" />
-                                    <path fill-rule="evenodd"
-                                        d="M6.5 12.5a2 2 0 012.828 0l1.5 1.5a2 2 0 010 2.828l-3 3a2 2 0 01-2.828-2.828l1.5-1.5a2 2 0 010-2.828z"
-                                        clip-rule="evenodd" />
-                                </svg>
-                                Ministry of Education
-                            </span>
-                            <a href="#"
-                                class="bg-green-100 text-brand-green px-4 py-1 rounded-full text-xs hover:bg-green-200">
-                                Visit
-                            </a>
-                        </li>
-
-                        <!-- Link 2 -->
-                        <li class="flex justify-between items-center text-sm p-2 border rounded-md">
-                            <span class="flex items-center gap-2 text-gray-700">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-red-500" viewBox="0 0 20 20"
-                                    fill="currentColor">
-                                    <path fill-rule="evenodd"
-                                        d="M12.586 4.586a2 2 0 112.828 2.828l-3 3a2 2 0 01-2.828 0l-1.5-1.5a2 2 0 112.828-2.828l1.5 1.5z"
-                                        clip-rule="evenodd" />
-                                    <path fill-rule="evenodd"
-                                        d="M6.5 12.5a2 2 0 012.828 0l1.5 1.5a2 2 0 010 2.828l-3 3a2 2 0 01-2.828-2.828l1.5-1.5a2 2 0 010-2.828z"
-                                        clip-rule="evenodd" />
-                                </svg>
-                                Google
-                            </span>
-                            <a href="#"
-                                class="bg-green-100 text-brand-green px-4 py-1 rounded-full text-xs hover:bg-green-200">
-                                Visit
-                            </a>
-                        </li>
-
-                    </ul>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
 
     <!-- Our Teachers Section -->
-    <section class="container mx-auto px-4 py-16">
-        <h2 class="text-3xl font-bold text-gray-800 text-center mb-8">আমাদের শিক্ষকরা</h2>
-        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
-            <!-- Teacher Card -->
-            <div class="bg-white p-4 rounded-lg shadow-md border border-gray-100 text-center">
-                <img src="{{ asset('assets/images/teachers/teacher1.jpg') }}" alt="Teacher"
-                    class="w-24 h-24 rounded-full mx-auto mb-4 object-cover">
-                <h4 class="font-bold text-gray-800">Atikur</h4>
-                <p class="text-sm text-gray-500 mb-3">(Assistant Teacher)</p>
-                <a href="#"
-                    class="inline-block text-brand-green font-semibold border border-green-200 px-4 py-1 rounded-full hover:bg-green-50 text-sm">আরও
-                    পড়ুন →</a>
+    <section class="bg-slate-50 py-16">
+        <div class="container mx-auto px-4">
+
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-800">আমাদের অভিজ্ঞ শিক্ষকবৃন্দ</h2>
+                <p class="text-gray-500 mt-2">আমাদের নিবেদিতপ্রাণ শিক্ষকমণ্ডলী, যারা শিক্ষার্থীদের পথপ্রদর্শক।</p>
             </div>
-            <div class="bg-white p-4 rounded-lg shadow-md border border-gray-100 text-center">
-                <img src="{{ asset('assets/images/teachers/teacher2.jpg') }}" alt="Teacher"
-                    class="w-24 h-24 rounded-full mx-auto mb-4 object-cover">
-                <h4 class="font-bold text-gray-800">Atikur</h4>
-                <p class="text-sm text-gray-500 mb-3">(Assistant Teacher)</p>
-                <a href="#"
-                    class="inline-block text-brand-green font-semibold border border-green-200 px-4 py-1 rounded-full hover:bg-green-50 text-sm">আরও
-                    পড়ুন →</a>
+
+            @foreach ($teachers as $item)
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-8 justify-center">
+                    <div
+                        class="bg-white rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 flex items-center justify-center gap-5 p-4 border border-gray-100">
+                        <!-- Image -->
+                        <div class="flex-shrink-0">
+                            <img src="{{ asset('assets/images/teachers/teacher1.jpg') }}" alt="আব্দুল্লাহ আল নোমান"
+                                class="w-28 h-32 md:w-32 md:h-36 object-cover rounded-lg">
+                        </div>
+
+                        <div class="flex flex-col h-full">
+                            <div>
+                                <h3 class="text-lg font-bold text-gray-900">{{ $item->first_name.' '. $item->last_name }}</h3>
+                                <p class="text-sm text-gray-500 mb-3">({{ $item->designation }})</p>
+                            </div>
+
+                            <div class="flex items-center gap-2 mb-4">
+                                <a href="#"
+                                    class="bg-green-500 text-white p-2 rounded-md hover:bg-green-600 transition-colors"><svg
+                                        class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                                        <path
+                                            d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.518.76a11.024 11.024 0 006.25 6.25l.76-1.518a1 1 0 011.06-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z">
+                                        </path>
+                                    </svg></a>
+                                <a href="#"
+                                    class="bg-green-500 text-white p-2 rounded-md hover:bg-green-600 transition-colors"><svg
+                                        class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                                        <path
+                                            d="M2.003 5.884L10 2.086l7.997 3.798A2 2 0 0018 7.682V18a2 2 0 01-2 2H4a2 2 0 01-2-2V7.682a2 2 0 00-.003-1.798zM12 11a2 2 0 10-4 0 2 2 0 004 0zM4 18V8.044l6-2.857 6 2.857V18H4z">
+                                        </path>
+                                    </svg></a>
+                                <a href="#"
+                                    class="bg-green-500 text-white p-2 rounded-md hover:bg-green-600 transition-colors"><svg
+                                        class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd"
+                                            d="M20 10c0-5.523-4.477-10-10-10S0 4.477 0 10c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V10h2.54V7.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V10h2.773l-.443 2.89h-2.33v6.988C16.343 19.128 20 14.991 20 10z"
+                                            clip-rule="evenodd"></path>
+                                    </svg></a>
+                                <a href="#"
+                                    class="bg-green-500 text-white p-2 rounded-md hover:bg-green-600 transition-colors"><svg
+                                        class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd"
+                                            d="M16.338 16.338H13.67V12.16c0-.995-.017-2.277-1.387-2.277-1.39 0-1.601 1.086-1.601 2.207v4.248H8.014v-8.59h2.559v1.174h.037c.356-.675 1.227-1.387 2.526-1.387 2.703 0 3.203 1.778 3.203 4.092v4.711zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.336 8.905H4.002v-8.59h2.671v8.59zM17.668 1H2.328C1.595 1 1 1.581 1 2.298v15.403C1 18.418 1.595 19 2.328 19h15.34c.734 0 1.332-.582 1.332-1.299V2.298C19 1.581 18.402 1 17.668 1z"
+                                            clip-rule="evenodd"></path>
+                                    </svg></a>
+                            </div>
+
+                            <div class="mt-auto">
+                                <a href="{{ route('teacher.show',$item->id) }}"
+                                    class="inline-block bg-teal-50 text-teal-700 font-semibold px-4 py-2 rounded-full text-sm hover:bg-teal-100 transition-colors group">
+                                    বিস্তারিত <span
+                                        class="inline-block transition-transform group-hover:translate-x-1">&rarr;</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            @endforeach
+
+            <div class="text-center mt-8">
+                <a href="{{ route('teachers.list') }}"
+                    class="bg-green-100 text-brand-green px-6 py-2 rounded-md font-semibold hover:bg-green-200">সকল শিক্ষক
+                    →</a>
             </div>
-            <div class="bg-white p-4 rounded-lg shadow-md border border-gray-100 text-center">
-                <img src="{{ asset('assets/images/teachers/teacher3.jpg') }}" alt="Teacher"
-                    class="w-24 h-24 rounded-full mx-auto mb-4 object-cover">
-                <h4 class="font-bold text-gray-800">Atikur</h4>
-                <p class="text-sm text-gray-500 mb-3">(Assistant Teacher)</p>
-                <a href="#"
-                    class="inline-block text-brand-green font-semibold border border-green-200 px-4 py-1 rounded-full hover:bg-green-50 text-sm">আরও
-                    পড়ুন →</a>
-            </div>
-            <div class="bg-white p-4 rounded-lg shadow-md border border-gray-100 text-center">
-                <img src="{{ asset('assets/images/teachers/teacher4.jpg') }}" alt="Teacher"
-                    class="w-24 h-24 rounded-full mx-auto mb-4 object-cover">
-                <h4 class="font-bold text-gray-800">Mst Halima khatun</h4>
-                <p class="text-sm text-gray-500 mb-3">(Assistant Teacher)</p>
-                <a href="#"
-                    class="inline-block text-brand-green font-semibold border border-green-200 px-4 py-1 rounded-full hover:bg-green-50 text-sm">আরও
-                    পড়ুন →</a>
-            </div>
-            <div class="bg-white p-4 rounded-lg shadow-md border border-gray-100 text-center">
-                <img src="{{ asset('assets/images/teachers/teacher5.jpg') }}" alt="Teacher"
-                    class="w-24 h-24 rounded-full mx-auto mb-4 object-cover">
-                <h4 class="font-bold text-gray-800">Mst Halima khatun</h4>
-                <p class="text-sm text-gray-500 mb-3">(Assistant Teacher)</p>
-                <a href="#"
-                    class="inline-block text-brand-green font-semibold border border-green-200 px-4 py-1 rounded-full hover:bg-green-50 text-sm">আরও
-                    পড়ুন →</a>
-            </div>
-        </div>
-        <div class="text-center mt-8">
-            <a href="#"
-                class="bg-green-100 text-brand-green px-6 py-2 rounded-md font-semibold hover:bg-green-200">সকল শিক্ষক
-                →</a>
         </div>
     </section>
-
     <!-- Student Statistics -->
     <!-- STUDENT STATISTICS - OPTION 2: CLEAN & MINIMALIST -->
     <section class="py-20">
@@ -411,12 +426,12 @@
                                 <svg class="w-5 h-5 text-emerald-700" fill="none" viewBox="0 0 24 24"
                                     stroke-width="1.8" stroke="currentColor">
                                     <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25
-                                                  0 01-2.25-2.25V6.75m19.5 0A2.25 2.25
-                                                  0 0019.5 4.5h-15a2.25 2.25 0 00-2.25
-                                                  2.25m19.5 0v.243a2.25 2.25 0 01-1.07
-                                                  1.916l-7.5 4.615a2.25 2.25 0
-                                                  01-2.36 0L3.32 8.91a2.25 2.25
-                                                  0 01-1.07-1.916V6.75" />
+                                                                      0 01-2.25-2.25V6.75m19.5 0A2.25 2.25
+                                                                      0 0019.5 4.5h-15a2.25 2.25 0 00-2.25
+                                                                      2.25m19.5 0v.243a2.25 2.25 0 01-1.07
+                                                                      1.916l-7.5 4.615a2.25 2.25 0
+                                                                      01-2.36 0L3.32 8.91a2.25 2.25
+                                                                      0 01-1.07-1.916V6.75" />
                                 </svg>
                             </a>
 
@@ -461,12 +476,12 @@
                                 <svg class="w-5 h-5 text-emerald-700" fill="none" viewBox="0 0 24 24"
                                     stroke-width="1.8" stroke="currentColor">
                                     <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25
-                                                  0 01-2.25-2.25V6.75m19.5 0A2.25 2.25
-                                                  0 0019.5 4.5h-15a2.25 2.25 0 00-2.25
-                                                  2.25m19.5 0v.243a2.25 2.25 0 01-1.07
-                                                  1.916l-7.5 4.615a2.25 2.25 0
-                                                  01-2.36 0L3.32 8.91a2.25 2.25
-                                                  0 01-1.07-1.916V6.75" />
+                                                                      0 01-2.25-2.25V6.75m19.5 0A2.25 2.25
+                                                                      0 0019.5 4.5h-15a2.25 2.25 0 00-2.25
+                                                                      2.25m19.5 0v.243a2.25 2.25 0 01-1.07
+                                                                      1.916l-7.5 4.615a2.25 2.25 0
+                                                                      01-2.36 0L3.32 8.91a2.25 2.25
+                                                                      0 01-1.07-1.916V6.75" />
                                 </svg>
                             </a>
 
@@ -511,12 +526,12 @@
                                 <svg class="w-5 h-5 text-emerald-700" fill="none" viewBox="0 0 24 24"
                                     stroke-width="1.8" stroke="currentColor">
                                     <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25
-                                                  0 01-2.25-2.25V6.75m19.5 0A2.25 2.25
-                                                  0 0019.5 4.5h-15a2.25 2.25 0 00-2.25
-                                                  2.25m19.5 0v.243a2.25 2.25 0 01-1.07
-                                                  1.916l-7.5 4.615a2.25 2.25 0
-                                                  01-2.36 0L3.32 8.91a2.25 2.25
-                                                  0 01-1.07-1.916V6.75" />
+                                                                      0 01-2.25-2.25V6.75m19.5 0A2.25 2.25
+                                                                      0 0019.5 4.5h-15a2.25 2.25 0 00-2.25
+                                                                      2.25m19.5 0v.243a2.25 2.25 0 01-1.07
+                                                                      1.916l-7.5 4.615a2.25 2.25 0
+                                                                      01-2.36 0L3.32 8.91a2.25 2.25
+                                                                      0 01-1.07-1.916V6.75" />
                                 </svg>
                             </a>
 
@@ -561,12 +576,12 @@
                                 <svg class="w-5 h-5 text-emerald-700" fill="none" viewBox="0 0 24 24"
                                     stroke-width="1.8" stroke="currentColor">
                                     <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25
-                                                  0 01-2.25-2.25V6.75m19.5 0A2.25 2.25
-                                                  0 0019.5 4.5h-15a2.25 2.25 0 00-2.25
-                                                  2.25m19.5 0v.243a2.25 2.25 0 01-1.07
-                                                  1.916l-7.5 4.615a2.25 2.25 0
-                                                  01-2.36 0L3.32 8.91a2.25 2.25
-                                                  0 01-1.07-1.916V6.75" />
+                                                                      0 01-2.25-2.25V6.75m19.5 0A2.25 2.25
+                                                                      0 0019.5 4.5h-15a2.25 2.25 0 00-2.25
+                                                                      2.25m19.5 0v.243a2.25 2.25 0 01-1.07
+                                                                      1.916l-7.5 4.615a2.25 2.25 0
+                                                                      01-2.36 0L3.32 8.91a2.25 2.25
+                                                                      0 01-1.07-1.916V6.75" />
                                 </svg>
                             </a>
 
