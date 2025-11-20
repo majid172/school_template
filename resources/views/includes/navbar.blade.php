@@ -8,7 +8,6 @@
 
         <!-- Desktop Navigation Menu -->
         <div class="hidden lg:flex items-center space-x-8 text-gray-700 font-medium">
-            <!-- Home Link -->
             <a href="{{ url('/') }}" class="bg-brand-green text-white px-4 py-2 rounded-full">মূলপাতা</a>
 
             <!-- Dropdown 1: পরিচিতি -->
