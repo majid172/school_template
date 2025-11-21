@@ -39,8 +39,8 @@
                 <h2 class="text-center text-xl font-bold text-gray-900">বিশেষ বিজ্ঞপ্তি!</h2>
 
                 <p><span class="font-semibold">বিষয়:</span> {{ $notice->title }}</p>
-<p>
-{!! $notice->description !!}</p>
+                <p>
+                    {!! $notice->description !!}</p>
 
             </div>
         </div>

@@ -4,24 +4,27 @@
         <div id="hero-carousel" class="relative w-full" data-carousel="slide">
 
             <div class="relative h-[350px] overflow-hidden rounded-2xl md:h-[500px]">
-                <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                    <div class="relative w-full h-full">
-                        <!-- Background Image -->
-                        <div class="absolute inset-0 bg-cover bg-center"
-                            style="background-image: url('{{ asset('assets/images/banner/banner1.jpg') }}');">
-                        </div>
-                        {{-- <div class="absolute inset-0 bg-black bg-opacity-50"></div> --}}
-                        <div class="absolute inset-0 flex items-center justify-center px-4">
-                            <h1 class="text-white text-3xl md:text-5xl font-bold leading-tight max-w-4xl text-center">
-                                Quality education is about possibilities. It is about success in real life.
-                            </h1>
+ @foreach ($banners as $item)
+                    <div class="hidden duration-700 ease-in-out" data-carousel-item>
+                        <div class="relative w-full h-full">
+                            <!-- Background Image -->
+                            <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('data:image/jpeg;base64,{{ base64_encode($item->image) }}');">
+                            </div>
+                            {{-- <div class="absolute inset-0 bg-black bg-opacity-50"></div> --}}
+                            <div class="absolute inset-0 flex items-center justify-center px-4">
+                                <h1 class="text-white text-3xl md:text-5xl font-bold leading-tight max-w-4xl text-center">
+                                    {{ $item->title }}
+                                </h1>
+                            </div>
                         </div>
                     </div>
-                </div>
+
+@endforeach
+
 
 
                 <!-- Item 2 -->
-                <div class="hidden duration-700 ease-in-out" data-carousel-item>
+                {{-- <div class="hidden duration-700 ease-in-out" data-carousel-item>
                     <div class="absolute block w-full h-full bg-cover bg-center"
                         style="background-image: url('{{ asset('assets/images/banner/banner2.jpg') }}');">
 
@@ -48,19 +51,17 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> --}}
             </div>
 
 
             <div class="absolute z-30 flex space-x-2 -translate-y-1/2 bottom-8 left-8">
+ @foreach ($banners as $key=>$item)
                 <button type="button" class="w-3 h-3 rounded-full" aria-current="true" aria-label="Slide 1"
-                    data-carousel-slide-to="0"></button>
-                <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 2"
-                    data-carousel-slide-to="1"></button>
-                <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 3"
-                    data-carousel-slide-to="2"></button>
-            </div>
+                    data-carousel-slide-to="{{ ++$key }}"></button>
+@endforeach
 
+            </div>
 
             <div class="absolute z-30 flex space-x-2 bottom-6 right-8">
                 <button type="button"
@@ -266,7 +267,8 @@
 
                         <div class="flex flex-col h-full">
                             <div>
-                                <h3 class="text-lg font-bold text-gray-900">{{ $item->first_name.' '. $item->last_name }}</h3>
+                                <h3 class="text-lg font-bold text-gray-900">{{ $item->first_name . ' ' . $item->last_name }}
+                                </h3>
                                 <p class="text-sm text-gray-500 mb-3">({{ $item->designation }})</p>
                             </div>
 
@@ -302,7 +304,7 @@
                             </div>
 
                             <div class="mt-auto">
-                                <a href="{{ route('teacher.show',$item->id) }}"
+                                <a href="{{ route('teacher.show', $item->id) }}"
                                     class="inline-block bg-teal-50 text-teal-700 font-semibold px-4 py-2 rounded-full text-sm hover:bg-teal-100 transition-colors group">
                                     বিস্তারিত <span
                                         class="inline-block transition-transform group-hover:translate-x-1">&rarr;</span>
@@ -401,8 +403,8 @@
 
                 <!-- Student Card -->
                 <div
-                    class="flex items-center gap-6 bg-white/80 backdrop-blur-xl border border-slate-100 
-                        p-6 rounded-3xl shadow-lg hover:shadow-2xl hover:-translate-y-1 
+                    class="flex items-center gap-6 bg-white/80 backdrop-blur-xl border border-slate-100
+                        p-6 rounded-3xl shadow-lg hover:shadow-2xl hover:-translate-y-1
                         transition-all duration-300">
 
                     <!-- Image -->
@@ -421,23 +423,23 @@
 
                             <!-- Mail Button -->
                             <a href="mailto:atikur@example.com"
-                                class="flex items-center justify-center h-9 w-9 bg-emerald-100 
+                                class="flex items-center justify-center h-9 w-9 bg-emerald-100
                                   rounded-xl hover:bg-emerald-200 transition">
                                 <svg class="w-5 h-5 text-emerald-700" fill="none" viewBox="0 0 24 24"
                                     stroke-width="1.8" stroke="currentColor">
                                     <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25
-                                                                      0 01-2.25-2.25V6.75m19.5 0A2.25 2.25
-                                                                      0 0019.5 4.5h-15a2.25 2.25 0 00-2.25
-                                                                      2.25m19.5 0v.243a2.25 2.25 0 01-1.07
-                                                                      1.916l-7.5 4.615a2.25 2.25 0
-                                                                      01-2.36 0L3.32 8.91a2.25 2.25
-                                                                      0 01-1.07-1.916V6.75" />
+                                                                          0 01-2.25-2.25V6.75m19.5 0A2.25 2.25
+                                                                          0 0019.5 4.5h-15a2.25 2.25 0 00-2.25
+                                                                          2.25m19.5 0v.243a2.25 2.25 0 01-1.07
+                                                                          1.916l-7.5 4.615a2.25 2.25 0
+                                                                          01-2.36 0L3.32 8.91a2.25 2.25
+                                                                          0 01-1.07-1.916V6.75" />
                                 </svg>
                             </a>
 
                             <!-- Read More -->
                             <a href="#"
-                                class="inline-flex items-center px-4 py-2 bg-emerald-50 
+                                class="inline-flex items-center px-4 py-2 bg-emerald-50
                                   text-emerald-700 font-semibold rounded-full text-sm
                                   hover:bg-emerald-100 transition">
                                 আরও পড়ুন
@@ -451,8 +453,8 @@
                     </div>
                 </div>
                 <div
-                    class="flex items-center gap-6 bg-white/80 backdrop-blur-xl border border-slate-100 
-                        p-6 rounded-3xl shadow-lg hover:shadow-2xl hover:-translate-y-1 
+                    class="flex items-center gap-6 bg-white/80 backdrop-blur-xl border border-slate-100
+                        p-6 rounded-3xl shadow-lg hover:shadow-2xl hover:-translate-y-1
                         transition-all duration-300">
 
                     <!-- Image -->
@@ -471,23 +473,23 @@
 
                             <!-- Mail Button -->
                             <a href="mailto:atikur@example.com"
-                                class="flex items-center justify-center h-9 w-9 bg-emerald-100 
+                                class="flex items-center justify-center h-9 w-9 bg-emerald-100
                                   rounded-xl hover:bg-emerald-200 transition">
                                 <svg class="w-5 h-5 text-emerald-700" fill="none" viewBox="0 0 24 24"
                                     stroke-width="1.8" stroke="currentColor">
                                     <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25
-                                                                      0 01-2.25-2.25V6.75m19.5 0A2.25 2.25
-                                                                      0 0019.5 4.5h-15a2.25 2.25 0 00-2.25
-                                                                      2.25m19.5 0v.243a2.25 2.25 0 01-1.07
-                                                                      1.916l-7.5 4.615a2.25 2.25 0
-                                                                      01-2.36 0L3.32 8.91a2.25 2.25
-                                                                      0 01-1.07-1.916V6.75" />
+                                                                          0 01-2.25-2.25V6.75m19.5 0A2.25 2.25
+                                                                          0 0019.5 4.5h-15a2.25 2.25 0 00-2.25
+                                                                          2.25m19.5 0v.243a2.25 2.25 0 01-1.07
+                                                                          1.916l-7.5 4.615a2.25 2.25 0
+                                                                          01-2.36 0L3.32 8.91a2.25 2.25
+                                                                          0 01-1.07-1.916V6.75" />
                                 </svg>
                             </a>
 
                             <!-- Read More -->
                             <a href="#"
-                                class="inline-flex items-center px-4 py-2 bg-emerald-50 
+                                class="inline-flex items-center px-4 py-2 bg-emerald-50
                                   text-emerald-700 font-semibold rounded-full text-sm
                                   hover:bg-emerald-100 transition">
                                 আরও পড়ুন
@@ -501,8 +503,8 @@
                     </div>
                 </div>
                 <div
-                    class="flex items-center gap-6 bg-white/80 backdrop-blur-xl border border-slate-100 
-                        p-6 rounded-3xl shadow-lg hover:shadow-2xl hover:-translate-y-1 
+                    class="flex items-center gap-6 bg-white/80 backdrop-blur-xl border border-slate-100
+                        p-6 rounded-3xl shadow-lg hover:shadow-2xl hover:-translate-y-1
                         transition-all duration-300">
 
                     <!-- Image -->
@@ -521,23 +523,23 @@
 
                             <!-- Mail Button -->
                             <a href="mailto:atikur@example.com"
-                                class="flex items-center justify-center h-9 w-9 bg-emerald-100 
+                                class="flex items-center justify-center h-9 w-9 bg-emerald-100
                                   rounded-xl hover:bg-emerald-200 transition">
                                 <svg class="w-5 h-5 text-emerald-700" fill="none" viewBox="0 0 24 24"
                                     stroke-width="1.8" stroke="currentColor">
                                     <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25
-                                                                      0 01-2.25-2.25V6.75m19.5 0A2.25 2.25
-                                                                      0 0019.5 4.5h-15a2.25 2.25 0 00-2.25
-                                                                      2.25m19.5 0v.243a2.25 2.25 0 01-1.07
-                                                                      1.916l-7.5 4.615a2.25 2.25 0
-                                                                      01-2.36 0L3.32 8.91a2.25 2.25
-                                                                      0 01-1.07-1.916V6.75" />
+                                                                          0 01-2.25-2.25V6.75m19.5 0A2.25 2.25
+                                                                          0 0019.5 4.5h-15a2.25 2.25 0 00-2.25
+                                                                          2.25m19.5 0v.243a2.25 2.25 0 01-1.07
+                                                                          1.916l-7.5 4.615a2.25 2.25 0
+                                                                          01-2.36 0L3.32 8.91a2.25 2.25
+                                                                          0 01-1.07-1.916V6.75" />
                                 </svg>
                             </a>
 
                             <!-- Read More -->
                             <a href="#"
-                                class="inline-flex items-center px-4 py-2 bg-emerald-50 
+                                class="inline-flex items-center px-4 py-2 bg-emerald-50
                                   text-emerald-700 font-semibold rounded-full text-sm
                                   hover:bg-emerald-100 transition">
                                 আরও পড়ুন
@@ -551,8 +553,8 @@
                     </div>
                 </div>
                 <div
-                    class="flex items-center gap-6 bg-white/80 backdrop-blur-xl border border-slate-100 
-                        p-6 rounded-3xl shadow-lg hover:shadow-2xl hover:-translate-y-1 
+                    class="flex items-center gap-6 bg-white/80 backdrop-blur-xl border border-slate-100
+                        p-6 rounded-3xl shadow-lg hover:shadow-2xl hover:-translate-y-1
                         transition-all duration-300">
 
                     <!-- Image -->
@@ -571,23 +573,23 @@
 
                             <!-- Mail Button -->
                             <a href="mailto:atikur@example.com"
-                                class="flex items-center justify-center h-9 w-9 bg-emerald-100 
+                                class="flex items-center justify-center h-9 w-9 bg-emerald-100
                                   rounded-xl hover:bg-emerald-200 transition">
                                 <svg class="w-5 h-5 text-emerald-700" fill="none" viewBox="0 0 24 24"
                                     stroke-width="1.8" stroke="currentColor">
                                     <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25
-                                                                      0 01-2.25-2.25V6.75m19.5 0A2.25 2.25
-                                                                      0 0019.5 4.5h-15a2.25 2.25 0 00-2.25
-                                                                      2.25m19.5 0v.243a2.25 2.25 0 01-1.07
-                                                                      1.916l-7.5 4.615a2.25 2.25 0
-                                                                      01-2.36 0L3.32 8.91a2.25 2.25
-                                                                      0 01-1.07-1.916V6.75" />
+                                                                          0 01-2.25-2.25V6.75m19.5 0A2.25 2.25
+                                                                          0 0019.5 4.5h-15a2.25 2.25 0 00-2.25
+                                                                          2.25m19.5 0v.243a2.25 2.25 0 01-1.07
+                                                                          1.916l-7.5 4.615a2.25 2.25 0
+                                                                          01-2.36 0L3.32 8.91a2.25 2.25
+                                                                          0 01-1.07-1.916V6.75" />
                                 </svg>
                             </a>
 
                             <!-- Read More -->
                             <a href="#"
-                                class="inline-flex items-center px-4 py-2 bg-emerald-50 
+                                class="inline-flex items-center px-4 py-2 bg-emerald-50
                                   text-emerald-700 font-semibold rounded-full text-sm
                                   hover:bg-emerald-100 transition">
                                 আরও পড়ুন
