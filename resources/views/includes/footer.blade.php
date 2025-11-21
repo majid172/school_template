@@ -16,11 +16,11 @@
                     <div class="grid grid-cols-2 gap-x-8 gap-y-2 text-sm">
                         <a href="{{ url('/contact') }}" class="hover:text-brand-green">যোগাযোগ</a>
                         <a href="#" class="hover:text-brand-green">ইনস্টিটিউট পরিচালনা কমিটি</a>
-                        <a href="#" class="hover:text-brand-green">প্রতিষ্ঠান সম্পর্কে</a>
+                        <a href="{{ route('about') }}" class="hover:text-brand-green">প্রতিষ্ঠান সম্পর্কে</a>
                         <a href="#" class="hover:text-brand-green">গ্যালারি</a>
                         <a href="#" class="hover:text-brand-green">স্কুল তথ্য</a>
                         <a href="#" class="hover:text-brand-green">চলমান শিক্ষার্থীরা</a>
-                        <a href="#" class="hover:text-brand-green">আমাদের শিক্ষকরা</a>
+                        <a href="{{ route('teachers.list') }}" class="hover:text-brand-green">আমাদের শিক্ষকরা</a>
                         <a href="#" class="hover:text-brand-green">রুটিন/ইভেন্ট</a>
                     </div>
                 </div>
@@ -56,7 +56,7 @@
         </div>
         <div class="bg-gray-900 py-4">
             <div class="container mx-auto px-4 text-center text-sm text-gray-400">
-                &copy; 2025 <a href="#" class="text-brand-green font-semibold">Education</a>. All right reserved.
+                &copy; 2025 <a href="#" class="text-brand-green font-semibold">EMS</a>. All right reserved.
                 Designed by: <a href="#" class="text-brand-green font-semibold">Ajax Limited</a>
             </div>
         </div>

@@ -16,13 +16,9 @@
                         </div>
                     </div>
                     <div class="w-full md:w-1/2">
-                        <h2 class="text-3xl font-bold text-gray-800 border-l-4 border-brand-green pl-4 mb-4">প্রতিষ্ঠান
-                            সম্পর্কে</h2>
-                        <p class="text-gray-600">It is a long established fact that a reader will be distracted by the
-                            readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it
-                            has a more-or-less normal distribution of letters, as opposed to using 'Content here, content
-                            here', making it look like readable English. Many desktop publishing packages and web page
-                            editors now use 'Lorem Ipsum' as their default model text...</p>
+                        <h2 class="text-3xl font-bold text-gray-800 border-l-4 border-brand-green pl-4 mb-4">
+                            {{ $title }}</h2>
+                        <p class="text-gray-600">{{ $objective->description }}</p>
                     </div>
                 </section>
 
@@ -101,25 +97,22 @@
                     </div>
                 </div>
 
-                
+
             </div>
         </div>
     </section>
 
 
-        <div class="container mx-auto px-4 py-16">
+    <div class="container mx-auto px-4 py-16">
         <div class="grid sm:grid-cols-1 lg:grid-cols-2 xl:grid-cols-2 gap-6">
             <!-- Left Column -->
             <div class="lg:col-span-2 space-y-12">
                 <!-- About Section -->
                 <section class="flex flex-col md:flex-row items-center gap-8">
                     <div class="w-full md:w-1/2">
-                        <h2 class="text-3xl font-bold text-gray-800 border-l-4 border-brand-green pl-4 mb-4">আমাদের মিশন </h2>
-                        <p class="text-gray-600">It is a long established fact that a reader will be distracted by the
-                            readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it
-                            has a more-or-less normal distribution of letters, as opposed to using 'Content here, content
-                            here', making it look like readable English. Many desktop publishing packages and web page
-                            editors now use 'Lorem Ipsum' as their default model text...</p>
+                        <h2 class="text-3xl font-bold text-gray-800 border-l-4 border-brand-green pl-4 mb-4">আমাদের মিশন
+                        </h2>
+                        <p class="text-gray-600">{!! $mission->description !!}</p>
                     </div>
 
                     <div class="flex-shrink-0 w-full md:w-1/2">
@@ -129,7 +122,35 @@
                             {{-- <div class="absolute inset-0 bg-gray-800 bg-opacity-40"></div> --}}
                         </div>
                     </div>
-                    
+
+                </section>
+
+                <!-- Head Teacher's Message -->
+
+            </div>
+
+        </div>
+    </div>
+    <div class="container mx-auto px-4 py-16">
+        <div class="grid sm:grid-cols-1 lg:grid-cols-2 xl:grid-cols-2 gap-6">
+            <!-- Left Column -->
+            <div class="lg:col-span-2 space-y-12">
+                <!-- About Section -->
+                <section class="flex flex-col md:flex-row items-center gap-8">
+                    <div class="flex-shrink-0 w-full md:w-1/2">
+                        <div class="relative w-full h-100 rounded-3xl overflow-hidden">
+                            <img src="{{ asset('assets/images/campus.jpg') }}" alt="School Building"
+                                class="absolute w-full h-full object-cover">
+                            {{-- <div class="absolute inset-0 bg-gray-800 bg-opacity-40"></div> --}}
+                        </div>
+                    </div>
+                    <div class="w-full md:w-1/2">
+                        <h2 class="text-3xl font-bold text-gray-800 border-l-4 border-brand-green pl-4 mb-4">আমাদের ভিশন
+                        </h2>
+                        <p class="text-gray-600">{!! $vision->description !!}</p>
+                    </div>
+
+
                 </section>
 
                 <!-- Head Teacher's Message -->
