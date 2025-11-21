@@ -6,19 +6,18 @@
         <div class="grid sm:grid-cols-1 lg:grid-cols-2 xl:grid-cols-2 gap-6">
             <!-- Left Column -->
             <div class="lg:col-span-2 space-y-12">
-                <!-- About Section -->
                 <section class="flex flex-col md:flex-row items-center gap-8">
                     <div class="flex-shrink-0 w-full md:w-1/2">
                         <div class="relative w-full h-100 rounded-3xl overflow-hidden">
-                            <img src="{{ asset('assets/images/campus.jpg') }}" alt="School Building"
-                                class="absolute w-full h-full object-cover">
+                            <img src="data:image/jpeg;base64,{{ base64_encode($about_us->image) }}"
+                                alt="{{ $about_us->title }}" class="absolute w-full h-full object-cover">
                             {{-- <div class="absolute inset-0 bg-gray-800 bg-opacity-40"></div> --}}
                         </div>
                     </div>
                     <div class="w-full md:w-1/2">
                         <h2 class="text-3xl font-bold text-gray-800 border-l-4 border-brand-green pl-4 mb-4">
-                            {{ $title }}</h2>
-                        <p class="text-gray-600">{{ $objective->description }}</p>
+                            {{ $about_us->title }}</h2>
+                        <p class="text-gray-600">{!! $about_us->long_description !!}</p>
                     </div>
                 </section>
 
@@ -117,8 +116,8 @@
 
                     <div class="flex-shrink-0 w-full md:w-1/2">
                         <div class="relative w-full h-100 rounded-3xl overflow-hidden">
-                            <img src="{{ asset('assets/images/campus.jpg') }}" alt="School Building"
-                                class="absolute w-full h-full object-cover">
+                            <img src="data:image/jpeg;base64,{{ base64_encode($mission->image) }}"
+                                alt="{{ $mission->title }}" class="absolute w-full h-full object-cover">
                             {{-- <div class="absolute inset-0 bg-gray-800 bg-opacity-40"></div> --}}
                         </div>
                     </div>
@@ -139,7 +138,7 @@
                 <section class="flex flex-col md:flex-row items-center gap-8">
                     <div class="flex-shrink-0 w-full md:w-1/2">
                         <div class="relative w-full h-100 rounded-3xl overflow-hidden">
-                            <img src="{{ asset('assets/images/campus.jpg') }}" alt="School Building"
+                            <img src="data:image/jpeg;base64,{{ base64_encode($vision->image) }}" alt="{{ $vision->title }}"
                                 class="absolute w-full h-full object-cover">
                             {{-- <div class="absolute inset-0 bg-gray-800 bg-opacity-40"></div> --}}
                         </div>
