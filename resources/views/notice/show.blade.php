@@ -21,7 +21,6 @@
 
             <a href="{{ route('notice.download-file',$notice->id) }}"
                 class="flex items-center px-4 py-2 bg-brand-green text-white text-sm font-semibold rounded-lg hover:bg-green-600 transition-colors shadow shadow-green-500/30" target="_blank">
-                <!-- Download Icon SVG -->
                 <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"
                     xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                     <path stroke-linecap="round" stroke-linejoin="round"

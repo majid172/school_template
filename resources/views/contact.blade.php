@@ -117,21 +117,16 @@
 
         </div>
     </section>
-    <!-- ============================================ -->
-    <!--            START: Map Section                -->
-    <!-- ============================================ -->
+
     <section class="bg-slate-50 mb-10">
         <div class="container mx-auto px-4">
 
-            <!-- Section Header -->
             <div class="text-center mb-12">
                 <h2 class="text-2xl md:text-4xl font-extrabold text-slate-800">
                     আমাদের খুঁজুন
                 </h2>
                 <div class="w-24 h-1 bg-emerald-500 mx-auto mt-4"></div>
             </div>
-
-            <!-- Google Map Embed -->
             <div class="w-full rounded-2xl shadow-xl overflow-hidden">
                
                 <div class="relative h-[450px]">
