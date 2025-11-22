@@ -16,5 +16,7 @@ Route::get('gallery-list',[GalleryController::class,'list'])->name('gallery.list
 Route::get('/contact',[ContactController::class,'contact'])->name('contact');
 Route::get('notice-list',[NoticeController::class,'list'])->name('notice.list');
 Route::get('notice-show/{id}',[NoticeController::class,'showNotice'])->name('notice.show');
+Route::get('/notice/{id}/download', [NoticeController::class, 'download'])
+            ->name('notice.download-file');
 Route::get('teachers',[TeacherController::class,'list'])->name('teachers.list');
 Route::get('show-teacher/{id}',[TeacherController::class,'show'])->name('teacher.show');

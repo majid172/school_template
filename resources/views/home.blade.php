@@ -4,6 +4,22 @@
         <div id="hero-carousel" class="relative w-full" data-carousel="slide">
 
             <div class="relative h-[350px] overflow-hidden rounded-2xl md:h-[500px]">
+                @forelse ($banners as $item)
+                    <div class="hidden duration-700 ease-in-out" data-carousel-item>
+                    <div class="relative w-full h-full">
+                        <!-- Background Image -->
+                        <div class="absolute inset-0 bg-cover bg-center"
+                            style="background-image: url('data:image/jpeg;base64,{{ base64_encode($item->image) }}');">
+                        </div>
+                        {{-- <div class="absolute inset-0 bg-black bg-opacity-50"></div> --}}
+                        <div class="absolute inset-0 flex items-center justify-center px-4">
+                            <h1 class="text-white text-3xl md:text-5xl font-bold leading-tight max-w-4xl text-center">
+                                {{ $item->title }}
+                            </h1>
+                        </div>
+                    </div>
+                </div>
+                @empty
                 <div class="hidden duration-700 ease-in-out" data-carousel-item>
                     <div class="relative w-full h-full">
                         <!-- Background Image -->
@@ -18,7 +34,9 @@
                         </div>
                     </div>
                 </div>
-
+                @endforelse
+                
+{{-- 
 
                 <!-- Item 2 -->
                 <div class="hidden duration-700 ease-in-out" data-carousel-item>
@@ -48,17 +66,20 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> --}}
             </div>
 
 
             <div class="absolute z-30 flex space-x-2 -translate-y-1/2 bottom-8 left-8">
+                @foreach ($banners as $key=>$item)
                 <button type="button" class="w-3 h-3 rounded-full" aria-current="true" aria-label="Slide 1"
-                    data-carousel-slide-to="0"></button>
-                <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 2"
+                    data-carousel-slide-to="{{ ++$key }}"></button>
+                
+                    @endforeach
+                {{-- <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 2"
                     data-carousel-slide-to="1"></button>
                 <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 3"
-                    data-carousel-slide-to="2"></button>
+                    data-carousel-slide-to="2"></button> --}}
             </div>
 
 
