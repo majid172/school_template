@@ -36,7 +36,7 @@
                     </div>
                 @endforelse
 
-                {{-- 
+                {{--
 
                 <!-- Item 2 -->
                 <div class="hidden duration-700 ease-in-out" data-carousel-item>
@@ -286,7 +286,8 @@
 
                         <div class="flex flex-col h-full w-full">
                             <div>
-                                <h3 class="text-lg font-bold text-gray-900">{{ $item->first_name . ' ' . $item->last_name }}
+                                <h3 class="text-lg font-bold text-gray-900">
+                                    {{ $item->first_name . ' ' . $item->last_name }}
                                 </h3>
                                 <p class="text-sm text-gray-500 mb-3">({{ $item->designation }})</p>
                             </div>
@@ -426,8 +427,8 @@
 
                 <!-- Student Card -->
                 <div
-                    class="flex items-center gap-6 bg-white/80 backdrop-blur-xl border border-slate-100 
-                        p-6 rounded-3xl shadow-lg hover:shadow-2xl hover:-translate-y-1 
+                    class="flex items-center gap-6 bg-white/80 backdrop-blur-xl border border-slate-100
+                        p-6 rounded-3xl shadow-lg hover:shadow-2xl hover:-translate-y-1
                         transition-all duration-300">
 
                     <!-- Image -->
@@ -446,23 +447,23 @@
 
                             <!-- Mail Button -->
                             <a href="mailto:atikur@example.com"
-                                class="flex items-center justify-center h-9 w-9 bg-emerald-100 
+                                class="flex items-center justify-center h-9 w-9 bg-emerald-100
                                   rounded-xl hover:bg-emerald-200 transition">
                                 <svg class="w-5 h-5 text-emerald-700" fill="none" viewBox="0 0 24 24"
                                     stroke-width="1.8" stroke="currentColor">
                                     <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25
-                                                                          0 01-2.25-2.25V6.75m19.5 0A2.25 2.25
-                                                                          0 0019.5 4.5h-15a2.25 2.25 0 00-2.25
-                                                                          2.25m19.5 0v.243a2.25 2.25 0 01-1.07
-                                                                          1.916l-7.5 4.615a2.25 2.25 0
-                                                                          01-2.36 0L3.32 8.91a2.25 2.25
-                                                                          0 01-1.07-1.916V6.75" />
+                                                                              0 01-2.25-2.25V6.75m19.5 0A2.25 2.25
+                                                                              0 0019.5 4.5h-15a2.25 2.25 0 00-2.25
+                                                                              2.25m19.5 0v.243a2.25 2.25 0 01-1.07
+                                                                              1.916l-7.5 4.615a2.25 2.25 0
+                                                                              01-2.36 0L3.32 8.91a2.25 2.25
+                                                                              0 01-1.07-1.916V6.75" />
                                 </svg>
                             </a>
 
                             <!-- Read More -->
                             <a href="#"
-                                class="inline-flex items-center px-4 py-2 bg-emerald-50 
+                                class="inline-flex items-center px-4 py-2 bg-emerald-50
                                   text-emerald-700 font-semibold rounded-full text-sm
                                   hover:bg-emerald-100 transition">
                                 আরও পড়ুন
@@ -476,8 +477,8 @@
                     </div>
                 </div>
                 <div
-                    class="flex items-center gap-6 bg-white/80 backdrop-blur-xl border border-slate-100 
-                        p-6 rounded-3xl shadow-lg hover:shadow-2xl hover:-translate-y-1 
+                    class="flex items-center gap-6 bg-white/80 backdrop-blur-xl border border-slate-100
+                        p-6 rounded-3xl shadow-lg hover:shadow-2xl hover:-translate-y-1
                         transition-all duration-300">
 
                     <!-- Image -->
@@ -496,23 +497,23 @@
 
                             <!-- Mail Button -->
                             <a href="mailto:atikur@example.com"
-                                class="flex items-center justify-center h-9 w-9 bg-emerald-100 
+                                class="flex items-center justify-center h-9 w-9 bg-emerald-100
                                   rounded-xl hover:bg-emerald-200 transition">
                                 <svg class="w-5 h-5 text-emerald-700" fill="none" viewBox="0 0 24 24"
                                     stroke-width="1.8" stroke="currentColor">
                                     <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25
-                                                                          0 01-2.25-2.25V6.75m19.5 0A2.25 2.25
-                                                                          0 0019.5 4.5h-15a2.25 2.25 0 00-2.25
-                                                                          2.25m19.5 0v.243a2.25 2.25 0 01-1.07
-                                                                          1.916l-7.5 4.615a2.25 2.25 0
-                                                                          01-2.36 0L3.32 8.91a2.25 2.25
-                                                                          0 01-1.07-1.916V6.75" />
+                                                                              0 01-2.25-2.25V6.75m19.5 0A2.25 2.25
+                                                                              0 0019.5 4.5h-15a2.25 2.25 0 00-2.25
+                                                                              2.25m19.5 0v.243a2.25 2.25 0 01-1.07
+                                                                              1.916l-7.5 4.615a2.25 2.25 0
+                                                                              01-2.36 0L3.32 8.91a2.25 2.25
+                                                                              0 01-1.07-1.916V6.75" />
                                 </svg>
                             </a>
 
                             <!-- Read More -->
                             <a href="#"
-                                class="inline-flex items-center px-4 py-2 bg-emerald-50 
+                                class="inline-flex items-center px-4 py-2 bg-emerald-50
                                   text-emerald-700 font-semibold rounded-full text-sm
                                   hover:bg-emerald-100 transition">
                                 আরও পড়ুন
@@ -526,8 +527,8 @@
                     </div>
                 </div>
                 <div
-                    class="flex items-center gap-6 bg-white/80 backdrop-blur-xl border border-slate-100 
-                        p-6 rounded-3xl shadow-lg hover:shadow-2xl hover:-translate-y-1 
+                    class="flex items-center gap-6 bg-white/80 backdrop-blur-xl border border-slate-100
+                        p-6 rounded-3xl shadow-lg hover:shadow-2xl hover:-translate-y-1
                         transition-all duration-300">
 
                     <!-- Image -->
@@ -546,23 +547,23 @@
 
                             <!-- Mail Button -->
                             <a href="mailto:atikur@example.com"
-                                class="flex items-center justify-center h-9 w-9 bg-emerald-100 
+                                class="flex items-center justify-center h-9 w-9 bg-emerald-100
                                   rounded-xl hover:bg-emerald-200 transition">
                                 <svg class="w-5 h-5 text-emerald-700" fill="none" viewBox="0 0 24 24"
                                     stroke-width="1.8" stroke="currentColor">
                                     <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25
-                                                                          0 01-2.25-2.25V6.75m19.5 0A2.25 2.25
-                                                                          0 0019.5 4.5h-15a2.25 2.25 0 00-2.25
-                                                                          2.25m19.5 0v.243a2.25 2.25 0 01-1.07
-                                                                          1.916l-7.5 4.615a2.25 2.25 0
-                                                                          01-2.36 0L3.32 8.91a2.25 2.25
-                                                                          0 01-1.07-1.916V6.75" />
+                                                                              0 01-2.25-2.25V6.75m19.5 0A2.25 2.25
+                                                                              0 0019.5 4.5h-15a2.25 2.25 0 00-2.25
+                                                                              2.25m19.5 0v.243a2.25 2.25 0 01-1.07
+                                                                              1.916l-7.5 4.615a2.25 2.25 0
+                                                                              01-2.36 0L3.32 8.91a2.25 2.25
+                                                                              0 01-1.07-1.916V6.75" />
                                 </svg>
                             </a>
 
                             <!-- Read More -->
                             <a href="#"
-                                class="inline-flex items-center px-4 py-2 bg-emerald-50 
+                                class="inline-flex items-center px-4 py-2 bg-emerald-50
                                   text-emerald-700 font-semibold rounded-full text-sm
                                   hover:bg-emerald-100 transition">
                                 আরও পড়ুন
@@ -576,8 +577,8 @@
                     </div>
                 </div>
                 <div
-                    class="flex items-center gap-6 bg-white/80 backdrop-blur-xl border border-slate-100 
-                        p-6 rounded-3xl shadow-lg hover:shadow-2xl hover:-translate-y-1 
+                    class="flex items-center gap-6 bg-white/80 backdrop-blur-xl border border-slate-100
+                        p-6 rounded-3xl shadow-lg hover:shadow-2xl hover:-translate-y-1
                         transition-all duration-300">
 
                     <!-- Image -->
@@ -596,23 +597,23 @@
 
                             <!-- Mail Button -->
                             <a href="mailto:atikur@example.com"
-                                class="flex items-center justify-center h-9 w-9 bg-emerald-100 
+                                class="flex items-center justify-center h-9 w-9 bg-emerald-100
                                   rounded-xl hover:bg-emerald-200 transition">
                                 <svg class="w-5 h-5 text-emerald-700" fill="none" viewBox="0 0 24 24"
                                     stroke-width="1.8" stroke="currentColor">
                                     <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25
-                                                                          0 01-2.25-2.25V6.75m19.5 0A2.25 2.25
-                                                                          0 0019.5 4.5h-15a2.25 2.25 0 00-2.25
-                                                                          2.25m19.5 0v.243a2.25 2.25 0 01-1.07
-                                                                          1.916l-7.5 4.615a2.25 2.25 0
-                                                                          01-2.36 0L3.32 8.91a2.25 2.25
-                                                                          0 01-1.07-1.916V6.75" />
+                                                                              0 01-2.25-2.25V6.75m19.5 0A2.25 2.25
+                                                                              0 0019.5 4.5h-15a2.25 2.25 0 00-2.25
+                                                                              2.25m19.5 0v.243a2.25 2.25 0 01-1.07
+                                                                              1.916l-7.5 4.615a2.25 2.25 0
+                                                                              01-2.36 0L3.32 8.91a2.25 2.25
+                                                                              0 01-1.07-1.916V6.75" />
                                 </svg>
                             </a>
 
                             <!-- Read More -->
                             <a href="#"
-                                class="inline-flex items-center px-4 py-2 bg-emerald-50 
+                                class="inline-flex items-center px-4 py-2 bg-emerald-50
                                   text-emerald-700 font-semibold rounded-full text-sm
                                   hover:bg-emerald-100 transition">
                                 আরও পড়ুন
@@ -626,6 +627,82 @@
                     </div>
                 </div>
                 <!-- Copy the same structure for other students -->
+            </div>
+        </div>
+    </section>
+    <section class="bg-slate-50 py-16">
+        <div class="container mx-auto px-4">
+
+            <!-- Header Section -->
+            <div class="flex items-center mb-8">
+                <h2 class="text-3xl font-bold text-slate-800">সংবাদ/ব্লগ</h2>
+                <div class="flex-grow h-px bg-gray-200 ml-6"></div>
+            </div>
+
+            <div class="flex flex-wrap justify-center gap-8">
+@forelse ($blogs as $item)
+<div
+                    class="w-full max-w-sm bg-white rounded-lg overflow-hidden border border-gray-100 shadow-sm hover:shadow-md transition-shadow duration-300 flex flex-col">
+                    <div class="h-56 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?q=80&w=1000&auto=format&fit=crop"
+                            alt="Student studying"
+                            class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
+                    </div>
+                    <div class="p-6 flex flex-col flex-grow">
+                        <div class="flex justify-between items-center text-sm text-gray-500 mb-3">
+                            <span class="font-medium">Post by: <span
+                                    class="text-slate-800 font-semibold">{{ $item->author }}</span></span>
+                            <span>Date: {{ $item->created_at }}/span>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-800 mb-6 leading-snug flex-grow">
+                            {{ $item->title }}
+                        </h3>
+                        <div>
+                            <a href="#"
+                                class="inline-flex items-center bg-emerald-50 text-emerald-700 px-4 py-2 rounded font-semibold text-sm hover:bg-emerald-100 transition-colors">
+                                আরো দেখুন
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-2" fill="none"
+                                    viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+@empty
+<div
+                    class="w-full max-w-sm bg-white rounded-lg overflow-hidden border border-gray-100 shadow-sm hover:shadow-md transition-shadow duration-300 flex flex-col">
+                    <div class="h-56 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?q=80&w=1000&auto=format&fit=crop"
+                            alt="Student studying"
+                            class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
+                    </div>
+                    <div class="p-6 flex flex-col flex-grow">
+                        <div class="flex justify-between items-center text-sm text-gray-500 mb-3">
+                            <span class="font-medium">Post by: <span
+                                    class="text-slate-800 font-semibold">Admin</span></span>
+                            <span>Date: 15 Sep, 2023</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-800 mb-6 leading-snug flex-grow">
+                            যেভাবে ভালো রেজাল্ট করার জন্য প্রস্তুতি নিবেন!
+                        </h3>
+                        <div>
+                            <a href="#"
+                                class="inline-flex items-center bg-emerald-50 text-emerald-700 px-4 py-2 rounded font-semibold text-sm hover:bg-emerald-100 transition-colors">
+                                আরো দেখুন
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-2" fill="none"
+                                    viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+@endforelse
+
+
             </div>
         </div>
     </section>
