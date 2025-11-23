@@ -658,7 +658,7 @@
                             {{ $item->title }}
                         </h3>
                         <div>
-                            <a href="#"
+                            <a href="{{ route('blog.show',$item->id) }}"
                                 class="inline-flex items-center bg-emerald-50 text-emerald-700 px-4 py-2 rounded font-semibold text-sm hover:bg-emerald-100 transition-colors">
                                 আরো দেখুন
                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-2" fill="none"

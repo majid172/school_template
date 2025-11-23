@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AboutController;
+use App\Http\Controllers\Blogs\BlogController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\HomeController;
@@ -20,3 +21,8 @@ Route::get('/notice/{id}/download', [NoticeController::class, 'download'])
             ->name('notice.download-file');
 Route::get('teachers',[TeacherController::class,'list'])->name('teachers.list');
 Route::get('show-teacher/{id}',[TeacherController::class,'show'])->name('teacher.show');
+
+Route::get('blogs',[BlogController::class,'list'])->name('blogs.list');
+Route::get('blog/{blog}/show', [BlogController::class, 'show'])
+    ->name('blog.show');
+
