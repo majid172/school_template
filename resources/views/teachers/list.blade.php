@@ -14,7 +14,7 @@
 
                         <!-- Image Section -->
                         <div class="w-2/5 flex-shrink-0">
-                            <img src="{{ asset('assets/images/teachers/teacher1.jpg') }}" class="w-full h-full object-cover"
+                            <img src="data:image/jpeg;base64,{{ base64_encode($item->photo) }}" class="w-full h-full object-cover"
                                 alt="{{ $item->first_name }}">
                         </div>
 

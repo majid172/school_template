@@ -6,37 +6,37 @@
             <div class="relative h-[350px] overflow-hidden rounded-2xl md:h-[500px]">
                 @forelse ($banners as $item)
                     <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                    <div class="relative w-full h-full">
-                        <!-- Background Image -->
-                        <div class="absolute inset-0 bg-cover bg-center"
-                            style="background-image: url('data:image/jpeg;base64,{{ base64_encode($item->image) }}');">
-                        </div>
-                        {{-- <div class="absolute inset-0 bg-black bg-opacity-50"></div> --}}
-                        <div class="absolute inset-0 flex items-center justify-center px-4">
-                            <h1 class="text-white text-3xl md:text-5xl font-bold leading-tight max-w-4xl text-center">
-                                {{ $item->title }}
-                            </h1>
+                        <div class="relative w-full h-full">
+                            <!-- Background Image -->
+                            <div class="absolute inset-0 bg-cover bg-center"
+                                style="background-image: url('data:image/jpeg;base64,{{ base64_encode($item->image) }}');">
+                            </div>
+                            {{-- <div class="absolute inset-0 bg-black bg-opacity-50"></div> --}}
+                            <div class="absolute inset-0 flex items-center justify-center px-4">
+                                <h1 class="text-white text-3xl md:text-5xl font-bold leading-tight max-w-4xl text-center">
+                                    {{ $item->title }}
+                                </h1>
+                            </div>
                         </div>
                     </div>
-                </div>
                 @empty
-                <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                    <div class="relative w-full h-full">
-                        <!-- Background Image -->
-                        <div class="absolute inset-0 bg-cover bg-center"
-                            style="background-image: url('{{ asset('assets/images/banner/banner1.jpg') }}');">
-                        </div>
-                        {{-- <div class="absolute inset-0 bg-black bg-opacity-50"></div> --}}
-                        <div class="absolute inset-0 flex items-center justify-center px-4">
-                            <h1 class="text-white text-3xl md:text-5xl font-bold leading-tight max-w-4xl text-center">
-                                Quality education is about possibilities. It is about success in real life.
-                            </h1>
+                    <div class="hidden duration-700 ease-in-out" data-carousel-item>
+                        <div class="relative w-full h-full">
+                            <!-- Background Image -->
+                            <div class="absolute inset-0 bg-cover bg-center"
+                                style="background-image: url('{{ asset('assets/images/banner/banner1.jpg') }}');">
+                            </div>
+                            {{-- <div class="absolute inset-0 bg-black bg-opacity-50"></div> --}}
+                            <div class="absolute inset-0 flex items-center justify-center px-4">
+                                <h1 class="text-white text-3xl md:text-5xl font-bold leading-tight max-w-4xl text-center">
+                                    Quality education is about possibilities. It is about success in real life.
+                                </h1>
+                            </div>
                         </div>
                     </div>
-                </div>
                 @endforelse
-                
-{{-- 
+
+                {{-- 
 
                 <!-- Item 2 -->
                 <div class="hidden duration-700 ease-in-out" data-carousel-item>
@@ -71,11 +71,10 @@
 
 
             <div class="absolute z-30 flex space-x-2 -translate-y-1/2 bottom-8 left-8">
-                @foreach ($banners as $key=>$item)
-                <button type="button" class="w-3 h-3 rounded-full" aria-current="true" aria-label="Slide 1"
-                    data-carousel-slide-to="{{ ++$key }}"></button>
-                
-                    @endforeach
+                @foreach ($banners as $key => $item)
+                    <button type="button" class="w-3 h-3 rounded-full" aria-current="true" aria-label="Slide 1"
+                        data-carousel-slide-to="{{ ++$key }}"></button>
+                @endforeach
                 {{-- <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 2"
                     data-carousel-slide-to="1"></button>
                 <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 3"
@@ -275,55 +274,61 @@
                 <p class="text-gray-500 mt-2">আমাদের নিবেদিতপ্রাণ শিক্ষকমণ্ডলী, যারা শিক্ষার্থীদের পথপ্রদর্শক।</p>
             </div>
 
-            @foreach ($teachers as $item)
-                <div class="grid grid-cols-1 md:grid-cols-4 gap-8 justify-center">
+            <div class="flex flex-wrap justify-center gap-8">
+                @foreach ($teachers as $item)
                     <div
-                        class="bg-white rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 flex items-center justify-center gap-5 p-4 border border-gray-100">
-                        <!-- Image -->
+                        class="w-full md:w-96 bg-white rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 flex items-center justify-center gap-5 p-4 border border-gray-100">
+
                         <div class="flex-shrink-0">
-                            <img src="{{ asset('assets/images/teachers/teacher1.jpg') }}" alt="আব্দুল্লাহ আল নোমান"
-                                class="w-28 h-32 md:w-32 md:h-36 object-cover rounded-lg">
+                            <img src="data:image/jpeg;base64,{{ base64_encode($item->photo) }}"
+                                alt="{{ $item->first_name }}" class="w-28 h-32 md:w-32 md:h-36 object-cover rounded-lg">
                         </div>
 
-                        <div class="flex flex-col h-full">
+                        <div class="flex flex-col h-full w-full">
                             <div>
-                                <h3 class="text-lg font-bold text-gray-900">{{ $item->first_name.' '. $item->last_name }}</h3>
+                                <h3 class="text-lg font-bold text-gray-900">{{ $item->first_name . ' ' . $item->last_name }}
+                                </h3>
                                 <p class="text-sm text-gray-500 mb-3">({{ $item->designation }})</p>
                             </div>
 
                             <div class="flex items-center gap-2 mb-4">
+                                <!-- Social Icons (Kept as is) -->
                                 <a href="#"
-                                    class="bg-green-500 text-white p-2 rounded-md hover:bg-green-600 transition-colors"><svg
-                                        class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                                    class="bg-green-500 text-white p-2 rounded-md hover:bg-green-600 transition-colors">
+                                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
                                         <path
                                             d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.518.76a11.024 11.024 0 006.25 6.25l.76-1.518a1 1 0 011.06-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z">
                                         </path>
-                                    </svg></a>
+                                    </svg>
+                                </a>
                                 <a href="#"
-                                    class="bg-green-500 text-white p-2 rounded-md hover:bg-green-600 transition-colors"><svg
-                                        class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                                    class="bg-green-500 text-white p-2 rounded-md hover:bg-green-600 transition-colors">
+                                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
                                         <path
                                             d="M2.003 5.884L10 2.086l7.997 3.798A2 2 0 0018 7.682V18a2 2 0 01-2 2H4a2 2 0 01-2-2V7.682a2 2 0 00-.003-1.798zM12 11a2 2 0 10-4 0 2 2 0 004 0zM4 18V8.044l6-2.857 6 2.857V18H4z">
                                         </path>
-                                    </svg></a>
+                                    </svg>
+                                </a>
                                 <a href="#"
-                                    class="bg-green-500 text-white p-2 rounded-md hover:bg-green-600 transition-colors"><svg
-                                        class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                                    class="bg-green-500 text-white p-2 rounded-md hover:bg-green-600 transition-colors">
+                                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
                                         <path fill-rule="evenodd"
                                             d="M20 10c0-5.523-4.477-10-10-10S0 4.477 0 10c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V10h2.54V7.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V10h2.773l-.443 2.89h-2.33v6.988C16.343 19.128 20 14.991 20 10z"
                                             clip-rule="evenodd"></path>
-                                    </svg></a>
+                                    </svg>
+                                </a>
                                 <a href="#"
-                                    class="bg-green-500 text-white p-2 rounded-md hover:bg-green-600 transition-colors"><svg
-                                        class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                                    class="bg-green-500 text-white p-2 rounded-md hover:bg-green-600 transition-colors">
+                                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
                                         <path fill-rule="evenodd"
                                             d="M16.338 16.338H13.67V12.16c0-.995-.017-2.277-1.387-2.277-1.39 0-1.601 1.086-1.601 2.207v4.248H8.014v-8.59h2.559v1.174h.037c.356-.675 1.227-1.387 2.526-1.387 2.703 0 3.203 1.778 3.203 4.092v4.711zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.336 8.905H4.002v-8.59h2.671v8.59zM17.668 1H2.328C1.595 1 1 1.581 1 2.298v15.403C1 18.418 1.595 19 2.328 19h15.34c.734 0 1.332-.582 1.332-1.299V2.298C19 1.581 18.402 1 17.668 1z"
                                             clip-rule="evenodd"></path>
-                                    </svg></a>
+                                    </svg>
+                                </a>
                             </div>
 
                             <div class="mt-auto">
-                                <a href="{{ route('teacher.show',$item->id) }}"
+                                <a href="{{ route('teacher.show', $item->id) }}"
                                     class="inline-block bg-teal-50 text-teal-700 font-semibold px-4 py-2 rounded-full text-sm hover:bg-teal-100 transition-colors group">
                                     বিস্তারিত <span
                                         class="inline-block transition-transform group-hover:translate-x-1">&rarr;</span>
@@ -331,9 +336,9 @@
                             </div>
                         </div>
                     </div>
+                @endforeach
 
-                </div>
-            @endforeach
+            </div>
 
             <div class="text-center mt-8">
                 <a href="{{ route('teachers.list') }}"
@@ -342,8 +347,7 @@
             </div>
         </div>
     </section>
-    <!-- Student Statistics -->
-    <!-- STUDENT STATISTICS - OPTION 2: CLEAN & MINIMALIST -->
+
     <section class="py-20">
         <div class="container mx-auto px-4">
             <!-- Section Header -->
@@ -447,12 +451,12 @@
                                 <svg class="w-5 h-5 text-emerald-700" fill="none" viewBox="0 0 24 24"
                                     stroke-width="1.8" stroke="currentColor">
                                     <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25
-                                                                      0 01-2.25-2.25V6.75m19.5 0A2.25 2.25
-                                                                      0 0019.5 4.5h-15a2.25 2.25 0 00-2.25
-                                                                      2.25m19.5 0v.243a2.25 2.25 0 01-1.07
-                                                                      1.916l-7.5 4.615a2.25 2.25 0
-                                                                      01-2.36 0L3.32 8.91a2.25 2.25
-                                                                      0 01-1.07-1.916V6.75" />
+                                                                          0 01-2.25-2.25V6.75m19.5 0A2.25 2.25
+                                                                          0 0019.5 4.5h-15a2.25 2.25 0 00-2.25
+                                                                          2.25m19.5 0v.243a2.25 2.25 0 01-1.07
+                                                                          1.916l-7.5 4.615a2.25 2.25 0
+                                                                          01-2.36 0L3.32 8.91a2.25 2.25
+                                                                          0 01-1.07-1.916V6.75" />
                                 </svg>
                             </a>
 
@@ -497,12 +501,12 @@
                                 <svg class="w-5 h-5 text-emerald-700" fill="none" viewBox="0 0 24 24"
                                     stroke-width="1.8" stroke="currentColor">
                                     <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25
-                                                                      0 01-2.25-2.25V6.75m19.5 0A2.25 2.25
-                                                                      0 0019.5 4.5h-15a2.25 2.25 0 00-2.25
-                                                                      2.25m19.5 0v.243a2.25 2.25 0 01-1.07
-                                                                      1.916l-7.5 4.615a2.25 2.25 0
-                                                                      01-2.36 0L3.32 8.91a2.25 2.25
-                                                                      0 01-1.07-1.916V6.75" />
+                                                                          0 01-2.25-2.25V6.75m19.5 0A2.25 2.25
+                                                                          0 0019.5 4.5h-15a2.25 2.25 0 00-2.25
+                                                                          2.25m19.5 0v.243a2.25 2.25 0 01-1.07
+                                                                          1.916l-7.5 4.615a2.25 2.25 0
+                                                                          01-2.36 0L3.32 8.91a2.25 2.25
+                                                                          0 01-1.07-1.916V6.75" />
                                 </svg>
                             </a>
 
@@ -547,12 +551,12 @@
                                 <svg class="w-5 h-5 text-emerald-700" fill="none" viewBox="0 0 24 24"
                                     stroke-width="1.8" stroke="currentColor">
                                     <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25
-                                                                      0 01-2.25-2.25V6.75m19.5 0A2.25 2.25
-                                                                      0 0019.5 4.5h-15a2.25 2.25 0 00-2.25
-                                                                      2.25m19.5 0v.243a2.25 2.25 0 01-1.07
-                                                                      1.916l-7.5 4.615a2.25 2.25 0
-                                                                      01-2.36 0L3.32 8.91a2.25 2.25
-                                                                      0 01-1.07-1.916V6.75" />
+                                                                          0 01-2.25-2.25V6.75m19.5 0A2.25 2.25
+                                                                          0 0019.5 4.5h-15a2.25 2.25 0 00-2.25
+                                                                          2.25m19.5 0v.243a2.25 2.25 0 01-1.07
+                                                                          1.916l-7.5 4.615a2.25 2.25 0
+                                                                          01-2.36 0L3.32 8.91a2.25 2.25
+                                                                          0 01-1.07-1.916V6.75" />
                                 </svg>
                             </a>
 
@@ -597,12 +601,12 @@
                                 <svg class="w-5 h-5 text-emerald-700" fill="none" viewBox="0 0 24 24"
                                     stroke-width="1.8" stroke="currentColor">
                                     <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25
-                                                                      0 01-2.25-2.25V6.75m19.5 0A2.25 2.25
-                                                                      0 0019.5 4.5h-15a2.25 2.25 0 00-2.25
-                                                                      2.25m19.5 0v.243a2.25 2.25 0 01-1.07
-                                                                      1.916l-7.5 4.615a2.25 2.25 0
-                                                                      01-2.36 0L3.32 8.91a2.25 2.25
-                                                                      0 01-1.07-1.916V6.75" />
+                                                                          0 01-2.25-2.25V6.75m19.5 0A2.25 2.25
+                                                                          0 0019.5 4.5h-15a2.25 2.25 0 00-2.25
+                                                                          2.25m19.5 0v.243a2.25 2.25 0 01-1.07
+                                                                          1.916l-7.5 4.615a2.25 2.25 0
+                                                                          01-2.36 0L3.32 8.91a2.25 2.25
+                                                                          0 01-1.07-1.916V6.75" />
                                 </svg>
                             </a>
 

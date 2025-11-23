@@ -8,7 +8,7 @@
             <div class="bg-white rounded-2xl shadow-xl p-8 md:p-12 flex flex-col md:flex-row gap-8 md:gap-12">
                 <div class="md:w-1/3 flex-shrink-0">
                     
-                    <img src="{{ asset('assets/images/teachers/teacher1.jpg') }}" class="rounded-2xl w-full h-full object-cover" alt="{{ $teacher->first_name.' '.$teacher->last_name }}">
+                    <img src="data:image/jpeg;base64,{{ base64_encode($teacher->photo) }}" class="rounded-2xl w-full h-full object-cover" alt="{{ $teacher->first_name.' '.$teacher->last_name }}">
                 </div>
 
                 <!-- Right Column: All Details -->

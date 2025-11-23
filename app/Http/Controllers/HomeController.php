@@ -5,6 +5,7 @@ use App\Models\WebAboutUs;
 use App\Models\WebBanner;
 use App\Models\WebGeneralNotice;
 use App\Models\WebMessage;
+use App\Models\WebSchoolSetting;
 use App\Service\TeacherService;
 
 class HomeController extends Controller
@@ -18,6 +19,7 @@ class HomeController extends Controller
 
     public function home()
     {
+        
         $banners = WebBanner::where('status',1)->orderBy('order','asc')->get();
         $about    = WebAboutUs::first();
         $messages = WebMessage::get();
