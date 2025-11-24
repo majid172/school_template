@@ -39,7 +39,7 @@
     @vite('resources/css/app.css')
 </head>
 
-<body class="bg-gray-50">
+<body class="bg-gray-50 min-h-screen">
 
      <div id="preloader"
         class="fixed inset-0 bg-white z-[9999] flex items-center justify-center transition-all duration-500">
@@ -73,6 +73,7 @@
             }, 500);
         });
     </script>
+    @stack('scripts')
 </body>
 
 </html>

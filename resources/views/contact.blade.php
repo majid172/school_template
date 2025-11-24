@@ -75,7 +75,7 @@
                             </div>
                             <div>
                                 <h4 class="text-xl font-semibold text-slate-800">ঠিকানা</h4>
-                                <p class="text-slate-600">{{ $contact->address }}</p>
+                                <p class="text-slate-600">{{ $contact->address ?? '' }}</p>
                             </div>
                         </div>
 
@@ -90,7 +90,7 @@
                             </div>
                             <div>
                                 <h4 class="text-xl font-semibold text-slate-800">ফোন</h4>
-                                <p class="text-slate-600">{{ $contact->phone }}</p>
+                                <p class="text-slate-600">{{ @$contact->phone }}</p>
                             </div>
                         </div>
 
@@ -105,7 +105,7 @@
                             </div>
                             <div>
                                 <h4 class="text-xl font-semibold text-slate-800">ইমেইল</h4>
-                                <p class="text-slate-600">{{ $contact->email }}</p>
+                                <p class="text-slate-600">{{ @$contact->email }}</p>
                             </div>
                         </div>
 

@@ -144,13 +144,16 @@
                                 </svg>
                                 পরিচালকদের বাণী
                             </h2>
+
                             <div class="flex items-center gap-2">
                                 <button
                                     class="p-2 rounded-full border border-gray-300 text-gray-500 hover:bg-gray-100 transition">&lt;</button>
                                 <button
                                     class="p-2 rounded-full border border-gray-300 text-gray-500 hover:bg-gray-100 transition">&gt;</button>
                             </div>
+
                         </div>
+
                         <!-- Message Cards -->
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                             @foreach ($messages as $item)
@@ -264,13 +267,12 @@
         </div>
     </div>
 
-
-    <!-- Our Teachers Section -->
     <section class="bg-slate-50 py-16">
         <div class="container mx-auto px-4">
 
             <div class="text-center mb-12">
                 <h2 class="text-3xl font-bold text-gray-800">আমাদের অভিজ্ঞ শিক্ষকবৃন্দ</h2>
+                <div class="w-24 h-1.5 bg-gradient-to-r from-emerald-500 to-teal-400 mx-auto rounded-full mt-3"></div>
                 <p class="text-gray-500 mt-2">আমাদের নিবেদিতপ্রাণ শিক্ষকমণ্ডলী, যারা শিক্ষার্থীদের পথপ্রদর্শক।</p>
             </div>
 
@@ -281,13 +283,13 @@
 
                         <div class="flex-shrink-0">
                             <img src="data:image/jpeg;base64,{{ base64_encode($item->photo) }}"
-                                alt="{{ $item->first_name }}" class="w-28 h-32 md:w-32 md:h-36 object-cover rounded-lg">
+                                alt="{{ $item->name_en }}" class="w-28 h-32 md:w-32 md:h-36 object-cover rounded-lg">
                         </div>
 
                         <div class="flex flex-col h-full w-full">
                             <div>
                                 <h3 class="text-lg font-bold text-gray-900">
-                                    {{ $item->first_name . ' ' . $item->last_name }}
+                                    {{ $item->name_en }} ( {{ $item->name_bn }})
                                 </h3>
                                 <p class="text-sm text-gray-500 mb-3">({{ $item->designation }})</p>
                             </div>
@@ -349,140 +351,238 @@
         </div>
     </section>
 
-    <section class="py-20">
-        <div class="container mx-auto px-4">
+    <section class="py-20 bg-slate-100 relative overflow-hidden" id="stats-section">
+
+        <div
+            class="absolute top-0 left-0 w-64 h-64 bg-emerald-100 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob">
+        </div>
+        <div
+            class="absolute top-0 right-0 w-64 h-64 bg-blue-100 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob animation-delay-2000">
+        </div>
+
+        <div class="container mx-auto px-4 relative z-10">
             <!-- Section Header -->
-            <div class="text-center mb-12">
+            <div class="text-center mb-16">
                 <h2 class="text-3xl md:text-4xl font-bold text-gray-800">ছাত্র পরিসংখ্যান</h2>
-                <p class="mt-3 max-w-2xl mx-auto text-gray-500">
+                <div class="w-24 h-1.5 bg-gradient-to-r from-emerald-500 to-teal-400 mx-auto rounded-full mt-3"></div>
+                <p class="mt-4 max-w-2xl mx-auto text-gray-500">
                     আমাদের প্রতিটি শ্রেণীতে মোট শিক্ষার্থীর সংখ্যা।
                 </p>
             </div>
 
-            <!-- Statistics Grid -->
-            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8">
 
-                <!-- Stat Item 1: One -->
+                <!-- Item 1: Class One -->
                 <div
-                    class="bg-white rounded-lg p-6 text-center border border-gray-200 transition-all duration-300 hover:border-brand-green hover:shadow-md">
-                    <div class="flex flex-col justify-center items-center">
-                        <span class="text-6xl font-bold text-brand-green">3</span>
-                        <p class="text-sm text-gray-500 -mt-1">Total Students</p>
+                    class="group bg-white rounded-2xl p-6 text-center border border-gray-100 shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 relative overflow-hidden">
+                    <div
+                        class="absolute -top-6 -right-6 w-24 h-24 bg-emerald-50 rounded-full group-hover:bg-emerald-100 transition-colors duration-300">
                     </div>
-                    <h5 class="mt-4 font-semibold text-gray-800 text-lg">Class One</h5>
+                    <div class="relative z-10">
+                        <div
+                            class="w-14 h-14 mx-auto bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center mb-4 text-2xl group-hover:scale-110 transition-transform duration-300">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                stroke-width="1.5" stroke="currentColor" class="w-7 h-7">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M4.26 10.147a60.436 60.436 0 00-.491 6.347A48.627 48.627 0 0112 20.904a48.627 48.627 0 018.232-4.41 60.46 60.46 0 00-.491-6.347m-15.482 0a50.57 50.57 0 00-2.658-.813A59.905 59.905 0 0112 3.493a59.902 59.902 0 0110.499 5.24 50.552 50.552 0 00-2.658.814m-15.482 0A50.55 50.55 0 0112 13.489a50.55 50.55 0 0112-4.02" />
+                            </svg>
+                        </div>
+                        <div class="flex items-center justify-center">
+                            <span class="counter text-5xl font-extrabold text-gray-800 tracking-tight"
+                                data-target="500">500</span>
+                        </div>
+                        <p class="text-xs font-bold text-gray-400 uppercase tracking-widest mt-1 mb-4">Students</p>
+                        <h5
+                            class="text-lg font-bold text-emerald-700 bg-emerald-50 py-2 rounded-lg group-hover:bg-emerald-600 group-hover:text-white transition-colors duration-300">
+                            Class One</h5>
+                    </div>
                 </div>
 
-                <!-- Stat Item 2: Play -->
+                <!-- Item 2: Class Play -->
                 <div
-                    class="bg-white rounded-lg p-6 text-center border border-gray-200 transition-all duration-300 hover:border-brand-green hover:shadow-md">
-                    <div class="flex flex-col justify-center items-center">
-                        <span class="text-6xl font-bold text-brand-green">2</span>
-                        <p class="text-sm text-gray-500 -mt-1">Total Students</p>
+                    class="group bg-white rounded-2xl p-6 text-center border border-gray-100 shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 relative overflow-hidden">
+                    <div
+                        class="absolute -top-6 -right-6 w-24 h-24 bg-blue-50 rounded-full group-hover:bg-blue-100 transition-colors duration-300">
                     </div>
-                    <h5 class="mt-4 font-semibold text-gray-800 text-lg">Class Play</h5>
+                    <div class="relative z-10">
+                        <div
+                            class="w-14 h-14 mx-auto bg-blue-100 text-blue-600 rounded-full flex items-center justify-center mb-4 text-2xl group-hover:scale-110 transition-transform duration-300">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                stroke-width="1.5" stroke="currentColor" class="w-7 h-7">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M15.182 15.182a4.5 4.5 0 01-6.364 0M21 12a9 9 0 11-18 0 9 9 0 0118 0zM9.75 9.75c0 .414-.168.75-.375.75S9 10.164 9 9.75 9.168 9 9.375 9s.375.336.375.75zm-.375 0h.008v.015h-.008V9.75zm5.625 0c0 .414-.168.75-.375.75s-.375-.336-.375-.75.168-.75.375-.75.375.336.375.75zm-.375 0h.008v.015h-.008V9.75z" />
+                            </svg>
+                        </div>
+                        <div class="flex items-center justify-center">
+                            <span class="counter text-5xl font-extrabold text-gray-800 tracking-tight"
+                                data-target="200">200</span>
+                        </div>
+                        <p class="text-xs font-bold text-gray-400 uppercase tracking-widest mt-1 mb-4">Students</p>
+                        <h5
+                            class="text-lg font-bold text-blue-700 bg-blue-50 py-2 rounded-lg group-hover:bg-blue-600 group-hover:text-white transition-colors duration-300">
+                            Class Play</h5>
+                    </div>
                 </div>
 
-                <!-- Stat Item 3: Two (Shows '0' state) -->
+                <!-- Item 3: Class Two (Zero State) -->
                 <div
-                    class="bg-white rounded-lg p-6 text-center border border-gray-200 transition-all duration-300 hover:border-gray-400 hover:shadow-md">
-                    <div class="flex flex-col justify-center items-center">
-                        <span class="text-6xl font-bold text-gray-400">0</span>
-                        <p class="text-sm text-gray-500 -mt-1">Total Students</p>
+                    class="group bg-white rounded-2xl p-6 text-center border border-gray-100 shadow-md hover:shadow-xl transition-all duration-300 relative overflow-hidden opacity-90">
+                    <div
+                        class="absolute -top-6 -right-6 w-24 h-24 bg-gray-50 rounded-full group-hover:bg-gray-100 transition-colors duration-300">
                     </div>
-                    <h5 class="mt-4 font-semibold text-gray-800 text-lg">Class Two</h5>
+                    <div class="relative z-10">
+                        <div
+                            class="w-14 h-14 mx-auto bg-gray-100 text-gray-400 rounded-full flex items-center justify-center mb-4 text-2xl group-hover:scale-110 transition-transform duration-300">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                stroke-width="1.5" stroke="currentColor" class="w-7 h-7">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25" />
+                            </svg>
+                        </div>
+                        <div class="flex items-center justify-center">
+                            <span class="counter text-5xl font-extrabold text-gray-300 tracking-tight"
+                                data-target="0">0</span>
+                        </div>
+                        <p class="text-xs font-bold text-gray-400 uppercase tracking-widest mt-1 mb-4">Students</p>
+                        <h5
+                            class="text-lg font-bold text-gray-600 bg-gray-50 py-2 rounded-lg group-hover:bg-gray-600 group-hover:text-white transition-colors duration-300">
+                            Class Two</h5>
+                    </div>
                 </div>
 
-                <!-- Add other items similarly -->
+                <!-- Item 4: Class Six -->
                 <div
-                    class="bg-white rounded-lg p-6 text-center border border-gray-200 transition-all duration-300 hover:border-gray-400 hover:shadow-md">
-                    <div class="flex flex-col justify-center items-center">
-                        <span class="text-6xl font-bold text-gray-400">0</span>
-                        <p class="text-sm text-gray-500 -mt-1">Total Students</p>
+                    class="group bg-white rounded-2xl p-6 text-center border border-gray-100 shadow-md hover:shadow-xl transition-all duration-300 relative overflow-hidden opacity-90">
+                    <div
+                        class="absolute -top-6 -right-6 w-24 h-24 bg-gray-50 rounded-full group-hover:bg-gray-100 transition-colors duration-300">
                     </div>
-                    <h5 class="mt-4 font-semibold text-gray-800 text-lg">Class Six</h5>
+                    <div class="relative z-10">
+                        <div
+                            class="w-14 h-14 mx-auto bg-gray-100 text-gray-400 rounded-full flex items-center justify-center mb-4 text-2xl group-hover:scale-110 transition-transform duration-300">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                stroke-width="1.5" stroke="currentColor" class="w-7 h-7">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L6.832 19.82a4.5 4.5 0 01-1.897 1.13l-2.685.8.8-2.685a4.5 4.5 0 011.13-1.897L16.863 4.487zm0 0L19.5 7.125" />
+                            </svg>
+                        </div>
+                        <div class="flex items-center justify-center">
+                            <span class="counter text-5xl font-extrabold text-gray-300 tracking-tight"
+                                data-target="0">0</span>
+                        </div>
+                        <p class="text-xs font-bold text-gray-400 uppercase tracking-widest mt-1 mb-4">Students</p>
+                        <h5
+                            class="text-lg font-bold text-gray-600 bg-gray-50 py-2 rounded-lg group-hover:bg-gray-600 group-hover:text-white transition-colors duration-300">
+                            Class Six</h5>
+                    </div>
                 </div>
+
+                <!-- Item 5: Class Seven -->
                 <div
-                    class="bg-white rounded-lg p-6 text-center border border-gray-200 transition-all duration-300 hover:border-brand-green hover:shadow-md">
-                    <div class="flex flex-col justify-center items-center">
-                        <span class="text-6xl font-bold text-brand-green">2</span>
-                        <p class="text-sm text-gray-500 -mt-1">Total Students</p>
+                    class="group bg-white rounded-2xl p-6 text-center border border-gray-100 shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 relative overflow-hidden">
+                    <div
+                        class="absolute -top-6 -right-6 w-24 h-24 bg-emerald-50 rounded-full group-hover:bg-emerald-100 transition-colors duration-300">
                     </div>
-                    <h5 class="mt-4 font-semibold text-gray-800 text-lg">Class Seven</h5>
+                    <div class="relative z-10">
+                        <div
+                            class="w-14 h-14 mx-auto bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center mb-4 text-2xl group-hover:scale-110 transition-transform duration-300">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                stroke-width="1.5" stroke="currentColor" class="w-7 h-7">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25" />
+                            </svg>
+                        </div>
+                        <div class="flex items-center justify-center">
+                            <span class="counter text-5xl font-extrabold text-gray-800 tracking-tight"
+                                data-target="2">0</span>
+                        </div>
+                        <p class="text-xs font-bold text-gray-400 uppercase tracking-widest mt-1 mb-4">Students</p>
+                        <h5
+                            class="text-lg font-bold text-emerald-700 bg-emerald-50 py-2 rounded-lg group-hover:bg-emerald-600 group-hover:text-white transition-colors duration-300">
+                            Class Seven</h5>
+                    </div>
                 </div>
 
             </div>
         </div>
     </section>
-<section class="md:container md:mx-auto py-10 px-4 overflow-hidden">
 
-    <!-- Header Section -->
-    <div class="flex justify-between items-end mb-6 border-b border-gray-200 pb-2">
-        <h2 class="text-2xl font-bold text-gray-800">ছবি এবং ভিডিও গ্যালারী</h2>
-    </div>
 
-    <!-- Slider Container -->
-    <div class="flex overflow-hidden relative group"> 
+    @if ($galleries->count() > 0)
+        <section class="md:container md:mx-auto py-10 px-4 overflow-hidden">
 
-        <!-- Sliding Track -->
-        <!-- Note: We put both loops inside ONE div -->
-        <div class="flex gap-6 animate-loop-scroll w-max hover:cursor-grab">
+            <div class="flex justify-between items-end mb-6 border-b border-gray-200 pb-2">
+                <h2 class="text-2xl font-bold text-gray-800">ছবি এবং ভিডিও গ্যালারী</h2>
+            </div>
 
-            <!-- LOOP 1: Original Data -->
-            @foreach ($galleries as $item)
-                <div class="relative h-80 w-80 flex-shrink-0 overflow-hidden rounded-lg shadow-lg">
-                    <img class="h-full w-full object-cover transition-transform duration-500 hover:scale-110"
-                        src="data:image/jpeg;base64,{{ base64_encode($item->image) }}" alt="{{ $item->title }}">
+            <!-- Slider Container -->
+            <div class="flex overflow-hidden relative group">
 
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent opacity-90 pointer-events-none">
-                    </div>
+                <!-- Sliding Track -->
+                <!-- Note: We put both loops inside ONE div -->
+                <div class="flex gap-6 animate-loop-scroll w-max hover:cursor-grab">
 
-                    <div class="absolute bottom-0 w-full p-6 text-center pointer-events-none">
-                        <h3 class="text-lg font-bold text-white drop-shadow-md leading-tight">
-                            {{ $item->title }}
-                        </h3>
-                        @if (isset($item->description))
-                            <p class="text-sm text-gray-200 mt-1">{{ $item->description }}</p>
-                        @endif
-                    </div>
+                    <!-- LOOP 1: Original Data -->
+                    @foreach ($galleries as $item)
+                        <div class="relative h-80 w-80 flex-shrink-0 overflow-hidden rounded-lg shadow-lg">
+                            <img class="h-full w-full object-cover transition-transform duration-500 hover:scale-110"
+                                src="data:image/jpeg;base64,{{ base64_encode($item->image) }}"
+                                alt="{{ $item->title }}">
+
+                            <div
+                                class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent opacity-90 pointer-events-none">
+                            </div>
+
+                            <div class="absolute bottom-0 w-full p-6 text-center pointer-events-none">
+                                <h3 class="text-lg font-bold text-white drop-shadow-md leading-tight">
+                                    {{ $item->title }}
+                                </h3>
+                                @if (isset($item->description))
+                                    <p class="text-sm text-gray-200 mt-1">{{ $item->description }}</p>
+                                @endif
+                            </div>
+                        </div>
+                    @endforeach
+
+                    <!-- LOOP 2: Duplicate Data (REQUIRED for no blank space) -->
+                    @foreach ($galleries as $item)
+                        <div class="relative h-80 w-80 flex-shrink-0 overflow-hidden rounded-lg shadow-lg">
+                            <img class="h-full w-full object-cover transition-transform duration-500 hover:scale-110"
+                                src="data:image/jpeg;base64,{{ base64_encode($item->image) }}"
+                                alt="{{ $item->title }}">
+
+                            <div
+                                class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent opacity-90 pointer-events-none">
+                            </div>
+
+                            <div class="absolute bottom-0 w-full p-6 text-center pointer-events-none">
+                                <h3 class="text-lg font-bold text-white drop-shadow-md leading-tight">
+                                    {{ $item->title }}
+                                </h3>
+                                @if (isset($item->description))
+                                    <p class="text-sm text-gray-200 mt-1">{{ $item->description }}</p>
+                                @endif
+                            </div>
+                        </div>
+                    @endforeach
+
                 </div>
-            @endforeach
+            </div>
 
-            <!-- LOOP 2: Duplicate Data (REQUIRED for no blank space) -->
-            @foreach ($galleries as $item)
-                <div class="relative h-80 w-80 flex-shrink-0 overflow-hidden rounded-lg shadow-lg">
-                    <img class="h-full w-full object-cover transition-transform duration-500 hover:scale-110"
-                        src="data:image/jpeg;base64,{{ base64_encode($item->image) }}" alt="{{ $item->title }}">
+            <!-- Footer Button -->
+            <div class="flex justify-center mt-10">
+                <a href="{{ route('gallery.list') }}"
+                    class="bg-emerald-50 text-emerald-700 font-medium px-6 py-2 rounded hover:bg-emerald-100 transition flex items-center gap-2">
+                    আরো দেখুন
+                    <span>&rarr;</span>
+                </a>
+            </div>
 
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent opacity-90 pointer-events-none">
-                    </div>
-
-                    <div class="absolute bottom-0 w-full p-6 text-center pointer-events-none">
-                        <h3 class="text-lg font-bold text-white drop-shadow-md leading-tight">
-                            {{ $item->title }}
-                        </h3>
-                        @if (isset($item->description))
-                            <p class="text-sm text-gray-200 mt-1">{{ $item->description }}</p>
-                        @endif
-                    </div>
-                </div>
-            @endforeach
-
-        </div>
-    </div>
-
-    <!-- Footer Button -->
-    <div class="flex justify-center mt-10">
-        <a href="{{ route('gallery.list') }}"
-            class="bg-emerald-50 text-emerald-700 font-medium px-6 py-2 rounded hover:bg-emerald-100 transition flex items-center gap-2">
-            আরো দেখুন
-            <span>&rarr;</span>
-        </a>
-    </div>
-
-</section>
+        </section>
+    @endif
 
 
-    <section class="bg-slate-50 py-16">
+
+    <section class="bg-slate-100 py-16">
         <div class="container mx-auto px-4">
 
             <div class="flex justify-between items-center mb-10">
@@ -514,13 +614,14 @@
                                   rounded-xl hover:bg-emerald-200 transition">
                                 <svg class="w-5 h-5 text-emerald-700" fill="none" viewBox="0 0 24 24"
                                     stroke-width="1.8" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25
-                                                                                                  0 01-2.25-2.25V6.75m19.5 0A2.25 2.25
-                                                                                                  0 0019.5 4.5h-15a2.25 2.25 0 00-2.25
-                                                                                                  2.25m19.5 0v.243a2.25 2.25 0 01-1.07
-                                                                                                  1.916l-7.5 4.615a2.25 2.25 0
-                                                                                                  01-2.36 0L3.32 8.91a2.25 2.25
-                                                                                                  0 01-1.07-1.916V6.75" />
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25
+                                                                                                                  0 01-2.25-2.25V6.75m19.5 0A2.25 2.25
+                                                                                                                  0 0019.5 4.5h-15a2.25 2.25 0 00-2.25
+                                                                                                                  2.25m19.5 0v.243a2.25 2.25 0 01-1.07
+                                                                                                                  1.916l-7.5 4.615a2.25 2.25 0
+                                                                                                                  01-2.36 0L3.32 8.91a2.25 2.25
+                                                                                                                  0 01-1.07-1.916V6.75" />
                                 </svg>
                             </a>
 
@@ -562,63 +663,14 @@
                                   rounded-xl hover:bg-emerald-200 transition">
                                 <svg class="w-5 h-5 text-emerald-700" fill="none" viewBox="0 0 24 24"
                                     stroke-width="1.8" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25
-                                                                                                  0 01-2.25-2.25V6.75m19.5 0A2.25 2.25
-                                                                                                  0 0019.5 4.5h-15a2.25 2.25 0 00-2.25
-                                                                                                  2.25m19.5 0v.243a2.25 2.25 0 01-1.07
-                                                                                                  1.916l-7.5 4.615a2.25 2.25 0
-                                                                                                  01-2.36 0L3.32 8.91a2.25 2.25
-                                                                                                  0 01-1.07-1.916V6.75" />
-                                </svg>
-                            </a>
-
-                            <!-- Read More -->
-                            <a href="#"
-                                class="inline-flex items-center px-4 py-2 bg-emerald-50
-                                  text-emerald-700 font-semibold rounded-full text-sm
-                                  hover:bg-emerald-100 transition">
-                                আরও পড়ুন
-                                <svg class="w-4 h-4 ml-1" fill="none" viewBox="0 0 24 24" stroke-width="2"
-                                    stroke="currentColor">
                                     <path stroke-linecap="round" stroke-linejoin="round"
-                                        d="M17.25 8.25L21 12l-3.75 3.75M21 12H3" />
-                                </svg>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div
-                    class="flex items-center gap-6 bg-white/80 backdrop-blur-xl border border-slate-100
-                        p-6 rounded-3xl shadow-lg hover:shadow-2xl hover:-translate-y-1
-                        transition-all duration-300">
-
-                    <!-- Image -->
-                    <img src="{{ asset('assets/images/students/student1.webp') }}"
-                        class="w-28 h-28 object-cover rounded-2xl shadow-md">
-
-                    <!-- Info -->
-                    <div class="flex-1">
-                        <h4 class="text-xl font-bold text-gray-900">Atikur Rahman</h4>
-                        <p class="text-gray-500 text-sm">Class : Play</p>
-                        <p class="text-gray-500 text-sm">Roll : 03</p>
-                        <p class="text-gray-500 text-sm mb-4">Session : Jan 2025 - Dec 2025</p>
-
-                        <!-- Buttons -->
-                        <div class="flex items-center gap-3">
-
-                            <!-- Mail Button -->
-                            <a href="mailto:atikur@example.com"
-                                class="flex items-center justify-center h-9 w-9 bg-emerald-100
-                                  rounded-xl hover:bg-emerald-200 transition">
-                                <svg class="w-5 h-5 text-emerald-700" fill="none" viewBox="0 0 24 24"
-                                    stroke-width="1.8" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25
-                                                                                                  0 01-2.25-2.25V6.75m19.5 0A2.25 2.25
-                                                                                                  0 0019.5 4.5h-15a2.25 2.25 0 00-2.25
-                                                                                                  2.25m19.5 0v.243a2.25 2.25 0 01-1.07
-                                                                                                  1.916l-7.5 4.615a2.25 2.25 0
-                                                                                                  01-2.36 0L3.32 8.91a2.25 2.25
-                                                                                                  0 01-1.07-1.916V6.75" />
+                                        d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25
+                                                                                                                  0 01-2.25-2.25V6.75m19.5 0A2.25 2.25
+                                                                                                                  0 0019.5 4.5h-15a2.25 2.25 0 00-2.25
+                                                                                                                  2.25m19.5 0v.243a2.25 2.25 0 01-1.07
+                                                                                                                  1.916l-7.5 4.615a2.25 2.25 0
+                                                                                                                  01-2.36 0L3.32 8.91a2.25 2.25
+                                                                                                                  0 01-1.07-1.916V6.75" />
                                 </svg>
                             </a>
 
@@ -662,13 +714,65 @@
                                   rounded-xl hover:bg-emerald-200 transition">
                                 <svg class="w-5 h-5 text-emerald-700" fill="none" viewBox="0 0 24 24"
                                     stroke-width="1.8" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25
-                                                                                                  0 01-2.25-2.25V6.75m19.5 0A2.25 2.25
-                                                                                                  0 0019.5 4.5h-15a2.25 2.25 0 00-2.25
-                                                                                                  2.25m19.5 0v.243a2.25 2.25 0 01-1.07
-                                                                                                  1.916l-7.5 4.615a2.25 2.25 0
-                                                                                                  01-2.36 0L3.32 8.91a2.25 2.25
-                                                                                                  0 01-1.07-1.916V6.75" />
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25
+                                                                                                                  0 01-2.25-2.25V6.75m19.5 0A2.25 2.25
+                                                                                                                  0 0019.5 4.5h-15a2.25 2.25 0 00-2.25
+                                                                                                                  2.25m19.5 0v.243a2.25 2.25 0 01-1.07
+                                                                                                                  1.916l-7.5 4.615a2.25 2.25 0
+                                                                                                                  01-2.36 0L3.32 8.91a2.25 2.25
+                                                                                                                  0 01-1.07-1.916V6.75" />
+                                </svg>
+                            </a>
+
+                            <!-- Read More -->
+                            <a href="#"
+                                class="inline-flex items-center px-4 py-2 bg-emerald-50
+                                  text-emerald-700 font-semibold rounded-full text-sm
+                                  hover:bg-emerald-100 transition">
+                                আরও পড়ুন
+                                <svg class="w-4 h-4 ml-1" fill="none" viewBox="0 0 24 24" stroke-width="2"
+                                    stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M17.25 8.25L21 12l-3.75 3.75M21 12H3" />
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div
+                    class="flex items-center gap-6 bg-white/80 backdrop-blur-xl border border-slate-100
+                        p-6 rounded-3xl shadow-lg hover:shadow-2xl hover:-translate-y-1
+                        transition-all duration-300">
+
+                    <!-- Image -->
+                    <img src="{{ asset('assets/images/students/student1.webp') }}"
+                        class="w-28 h-28 object-cover rounded-2xl shadow-md">
+
+                    <!-- Info -->
+                    <div class="flex-1">
+                        <h4 class="text-xl font-bold text-gray-900">Atikur Rahman</h4>
+                        <p class="text-gray-500 text-sm">Class : Play</p>
+                        <p class="text-gray-500 text-sm">Roll : 03</p>
+                        <p class="text-gray-500 text-sm mb-4">Session : Jan 2025 - Dec 2025</p>
+
+                        <!-- Buttons -->
+                        <div class="flex items-center gap-3">
+
+                            <!-- Mail Button -->
+                            <a href="mailto:atikur@example.com"
+                                class="flex items-center justify-center h-9 w-9 bg-emerald-100
+                                  rounded-xl hover:bg-emerald-200 transition">
+                                <svg class="w-5 h-5 text-emerald-700" fill="none" viewBox="0 0 24 24"
+                                    stroke-width="1.8" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25
+                                                                                                                  0 01-2.25-2.25V6.75m19.5 0A2.25 2.25
+                                                                                                                  0 0019.5 4.5h-15a2.25 2.25 0 00-2.25
+                                                                                                                  2.25m19.5 0v.243a2.25 2.25 0 01-1.07
+                                                                                                                  1.916l-7.5 4.615a2.25 2.25 0
+                                                                                                                  01-2.36 0L3.32 8.91a2.25 2.25
+                                                                                                                  0 01-1.07-1.916V6.75" />
                                 </svg>
                             </a>
 
@@ -694,10 +798,11 @@
 
     <section class="bg-slate-50 py-16">
         <div class="container mx-auto px-4">
-            <div class="flex items-center mb-8">
-                <h2 class="text-3xl font-bold text-slate-800">সংবাদ/ব্লগ</h2>
-                <div class="flex-grow h-px bg-gray-200 ml-6"></div>
+            <div class="mb-8">
+                <h2 class="text-3xl text-center font-bold text-slate-800">সংবাদ/ব্লগ</h2>
+                <div class="w-24 h-1.5 bg-gradient-to-r from-emerald-500 to-teal-400 mx-auto rounded-full mt-3"></div>
             </div>
+
 
             <div class="flex flex-wrap justify-center gap-8">
                 @forelse ($blogs as $item)
@@ -757,25 +862,88 @@
         </div>
     </section>
 
-<style>
-    @keyframes loop-scroll {
-        from {
-            transform: translateX(0);
-        }
-        to {
-            /* We change this to -50% because we have 2 sets of data. 
-               When we move 50%, the second set is exactly where the first set started. */
-            transform: translateX(-50%);
-        }
-    }
+    <style>
+        @keyframes loop-scroll {
+            from {
+                transform: translateX(0);
+            }
 
-    .animate-loop-scroll {
-        /* Adjust time here (e.g. 40s) for speed */
-        animation: loop-scroll 40s linear infinite;
-    }
+            to {
+                /* We change this to -50% because we have 2 sets of data.
+                               When we move 50%, the second set is exactly where the first set started. */
+                transform: translateX(-50%);
+            }
+        }
 
-    .group:hover .animate-loop-scroll {
-        animation-play-state: paused;
-    }
-</style>
+        .animate-loop-scroll {
+            /* Adjust time here (e.g. 40s) for speed */
+            animation: loop-scroll 40s linear infinite;
+        }
+
+        .group:hover .animate-loop-scroll {
+            animation-play-state: paused;
+        }
+    </style>
 @endsection
+@push('scripts')
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const counters = document.querySelectorAll('.counter');
+
+            // Initialize counters to 0 if their data-target > 0
+            counters.forEach(c => {
+                const target = Number(c.getAttribute('data-target')) || 0;
+                c.textContent = target > 0 ? '0' : '0'; // show 0 for all; zero-target will stay 0
+            });
+
+            // easing function (easeOutQuad)
+            const easeOutQuad = t => t * (2 - t);
+
+            const animateCounter = (counter) => {
+                const target = Number(counter.getAttribute('data-target')) || 0;
+                if (target === 0) {
+                    counter.textContent = '0';
+                    return;
+                }
+
+                // duration in ms (you can tweak this)
+                const duration = Math.min(2500, Math.max(800, target * 6));
+
+                let startTime = null;
+
+                function step(timestamp) {
+                    if (!startTime) startTime = timestamp;
+                    const elapsed = timestamp - startTime;
+                    const progress = Math.min(elapsed / duration, 1);
+                    const eased = easeOutQuad(progress);
+                    const current = Math.floor(eased * target);
+
+                    counter.textContent = current.toLocaleString(); // optional: adds thousands separators
+
+                    if (progress < 1) {
+                        requestAnimationFrame(step);
+                    } else {
+                        // ensure final value exactly matches target
+                        counter.textContent = target.toLocaleString();
+                    }
+                }
+
+                requestAnimationFrame(step);
+            };
+
+            // Intersection Observer: animate when element is at least 50% visible
+            const observer = new IntersectionObserver((entries, obs) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        animateCounter(entry.target);
+                        obs.unobserve(entry.target);
+                    }
+                });
+            }, {
+                threshold: 0.5
+            });
+
+            counters.forEach(c => observer.observe(c));
+        });
+    </script>
+@endpush
