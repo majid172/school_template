@@ -371,34 +371,61 @@
             </div>
 
             <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8">
-
-                <!-- Item 1: Class One -->
-                <div
-                    class="group bg-white rounded-2xl p-6 text-center border border-gray-100 shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 relative overflow-hidden">
+                @forelse ($classWiseStudent as $item)
                     <div
-                        class="absolute -top-6 -right-6 w-24 h-24 bg-emerald-50 rounded-full group-hover:bg-emerald-100 transition-colors duration-300">
-                    </div>
-                    <div class="relative z-10">
+                        class="group bg-white rounded-2xl p-6 text-center border border-gray-100 shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 relative overflow-hidden">
                         <div
-                            class="w-14 h-14 mx-auto bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center mb-4 text-2xl group-hover:scale-110 transition-transform duration-300">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                stroke-width="1.5" stroke="currentColor" class="w-7 h-7">
-                                <path stroke-linecap="round" stroke-linejoin="round"
-                                    d="M4.26 10.147a60.436 60.436 0 00-.491 6.347A48.627 48.627 0 0112 20.904a48.627 48.627 0 018.232-4.41 60.46 60.46 0 00-.491-6.347m-15.482 0a50.57 50.57 0 00-2.658-.813A59.905 59.905 0 0112 3.493a59.902 59.902 0 0110.499 5.24 50.552 50.552 0 00-2.658.814m-15.482 0A50.55 50.55 0 0112 13.489a50.55 50.55 0 0112-4.02" />
-                            </svg>
+                            class="absolute -top-6 -right-6 w-24 h-24 bg-emerald-50 rounded-full group-hover:bg-emerald-100 transition-colors duration-300">
                         </div>
-                        <div class="flex items-center justify-center">
-                            <span class="counter text-5xl font-extrabold text-gray-800 tracking-tight"
-                                data-target="500">500</span>
+                        <div class="relative z-10">
+                            <div
+                                class="w-14 h-14 mx-auto bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center mb-4 text-2xl group-hover:scale-110 transition-transform duration-300">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                    stroke-width="1.5" stroke="currentColor" class="w-7 h-7">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M4.26 10.147a60.436 60.436 0 00-.491 6.347A48.627 48.627 0 0112 20.904a48.627 48.627 0 018.232-4.41 60.46 60.46 0 00-.491-6.347m-15.482 0a50.57 50.57 0 00-2.658-.813A59.905 59.905 0 0112 3.493a59.902 59.902 0 0110.499 5.24 50.552 50.552 0 00-2.658.814m-15.482 0A50.55 50.55 0 0112 13.489a50.55 50.55 0 0112-4.02" />
+                                </svg>
+                            </div>
+                            <div class="flex items-center justify-center">
+                                <span class="counter text-5xl font-extrabold text-gray-800 tracking-tight"
+                                    data-target="{{ $item->enrollments_count }}">{{ $item->enrollments_count }}</span>
+                            </div>
+                            <p class="text-xs font-bold text-gray-400 uppercase tracking-widest mt-1 mb-4">Students</p>
+                            <h5
+                                class="text-lg font-bold text-emerald-700 bg-emerald-50 py-2 rounded-lg group-hover:bg-emerald-600 group-hover:text-white transition-colors duration-300">
+                                Class {{ $item->class_name }}</h5>
                         </div>
-                        <p class="text-xs font-bold text-gray-400 uppercase tracking-widest mt-1 mb-4">Students</p>
-                        <h5
-                            class="text-lg font-bold text-emerald-700 bg-emerald-50 py-2 rounded-lg group-hover:bg-emerald-600 group-hover:text-white transition-colors duration-300">
-                            Class One</h5>
                     </div>
-                </div>
+                @empty
+                    <div
+                        class="group bg-white rounded-2xl p-6 text-center border border-gray-100 shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 relative overflow-hidden">
+                        <div
+                            class="absolute -top-6 -right-6 w-24 h-24 bg-emerald-50 rounded-full group-hover:bg-emerald-100 transition-colors duration-300">
+                        </div>
+                        <div class="relative z-10">
+                            <div
+                                class="w-14 h-14 mx-auto bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center mb-4 text-2xl group-hover:scale-110 transition-transform duration-300">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                    stroke-width="1.5" stroke="currentColor" class="w-7 h-7">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M4.26 10.147a60.436 60.436 0 00-.491 6.347A48.627 48.627 0 0112 20.904a48.627 48.627 0 018.232-4.41 60.46 60.46 0 00-.491-6.347m-15.482 0a50.57 50.57 0 00-2.658-.813A59.905 59.905 0 0112 3.493a59.902 59.902 0 0110.499 5.24 50.552 50.552 0 00-2.658.814m-15.482 0A50.55 50.55 0 0112 13.489a50.55 50.55 0 0112-4.02" />
+                                </svg>
+                            </div>
+                            <div class="flex items-center justify-center">
+                                <span class="counter text-5xl font-extrabold text-gray-800 tracking-tight"
+                                    data-target="500">500</span>
+                            </div>
+                            <p class="text-xs font-bold text-gray-400 uppercase tracking-widest mt-1 mb-4">Students</p>
+                            <h5
+                                class="text-lg font-bold text-emerald-700 bg-emerald-50 py-2 rounded-lg group-hover:bg-emerald-600 group-hover:text-white transition-colors duration-300">
+                               Empty Class </h5>
+                        </div>
+                    </div>
+                @endforelse
+                <!-- Item 1: Class One -->
 
-                <!-- Item 2: Class Play -->
+
+                {{-- <!-- Item 2: Class Play -->
                 <div
                     class="group bg-white rounded-2xl p-6 text-center border border-gray-100 shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 relative overflow-hidden">
                     <div
@@ -500,7 +527,7 @@
                             class="text-lg font-bold text-emerald-700 bg-emerald-50 py-2 rounded-lg group-hover:bg-emerald-600 group-hover:text-white transition-colors duration-300">
                             Class Seven</h5>
                     </div>
-                </div>
+                </div> --}}
 
             </div>
         </div>
@@ -616,12 +643,12 @@
                                     stroke-width="1.8" stroke="currentColor">
                                     <path stroke-linecap="round" stroke-linejoin="round"
                                         d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25
-                                                                                                                  0 01-2.25-2.25V6.75m19.5 0A2.25 2.25
-                                                                                                                  0 0019.5 4.5h-15a2.25 2.25 0 00-2.25
-                                                                                                                  2.25m19.5 0v.243a2.25 2.25 0 01-1.07
-                                                                                                                  1.916l-7.5 4.615a2.25 2.25 0
-                                                                                                                  01-2.36 0L3.32 8.91a2.25 2.25
-                                                                                                                  0 01-1.07-1.916V6.75" />
+                                                                                                                      0 01-2.25-2.25V6.75m19.5 0A2.25 2.25
+                                                                                                                      0 0019.5 4.5h-15a2.25 2.25 0 00-2.25
+                                                                                                                      2.25m19.5 0v.243a2.25 2.25 0 01-1.07
+                                                                                                                      1.916l-7.5 4.615a2.25 2.25 0
+                                                                                                                      01-2.36 0L3.32 8.91a2.25 2.25
+                                                                                                                      0 01-1.07-1.916V6.75" />
                                 </svg>
                             </a>
 
@@ -665,63 +692,12 @@
                                     stroke-width="1.8" stroke="currentColor">
                                     <path stroke-linecap="round" stroke-linejoin="round"
                                         d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25
-                                                                                                                  0 01-2.25-2.25V6.75m19.5 0A2.25 2.25
-                                                                                                                  0 0019.5 4.5h-15a2.25 2.25 0 00-2.25
-                                                                                                                  2.25m19.5 0v.243a2.25 2.25 0 01-1.07
-                                                                                                                  1.916l-7.5 4.615a2.25 2.25 0
-                                                                                                                  01-2.36 0L3.32 8.91a2.25 2.25
-                                                                                                                  0 01-1.07-1.916V6.75" />
-                                </svg>
-                            </a>
-
-                            <!-- Read More -->
-                            <a href="#"
-                                class="inline-flex items-center px-4 py-2 bg-emerald-50
-                                  text-emerald-700 font-semibold rounded-full text-sm
-                                  hover:bg-emerald-100 transition">
-                                আরও পড়ুন
-                                <svg class="w-4 h-4 ml-1" fill="none" viewBox="0 0 24 24" stroke-width="2"
-                                    stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round"
-                                        d="M17.25 8.25L21 12l-3.75 3.75M21 12H3" />
-                                </svg>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div
-                    class="flex items-center gap-6 bg-white/80 backdrop-blur-xl border border-slate-100
-                        p-6 rounded-3xl shadow-lg hover:shadow-2xl hover:-translate-y-1
-                        transition-all duration-300">
-
-                    <!-- Image -->
-                    <img src="{{ asset('assets/images/students/student1.webp') }}"
-                        class="w-28 h-28 object-cover rounded-2xl shadow-md">
-
-                    <!-- Info -->
-                    <div class="flex-1">
-                        <h4 class="text-xl font-bold text-gray-900">Atikur Rahman</h4>
-                        <p class="text-gray-500 text-sm">Class : Play</p>
-                        <p class="text-gray-500 text-sm">Roll : 03</p>
-                        <p class="text-gray-500 text-sm mb-4">Session : Jan 2025 - Dec 2025</p>
-
-                        <!-- Buttons -->
-                        <div class="flex items-center gap-3">
-
-                            <!-- Mail Button -->
-                            <a href="mailto:atikur@example.com"
-                                class="flex items-center justify-center h-9 w-9 bg-emerald-100
-                                  rounded-xl hover:bg-emerald-200 transition">
-                                <svg class="w-5 h-5 text-emerald-700" fill="none" viewBox="0 0 24 24"
-                                    stroke-width="1.8" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round"
-                                        d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25
-                                                                                                                  0 01-2.25-2.25V6.75m19.5 0A2.25 2.25
-                                                                                                                  0 0019.5 4.5h-15a2.25 2.25 0 00-2.25
-                                                                                                                  2.25m19.5 0v.243a2.25 2.25 0 01-1.07
-                                                                                                                  1.916l-7.5 4.615a2.25 2.25 0
-                                                                                                                  01-2.36 0L3.32 8.91a2.25 2.25
-                                                                                                                  0 01-1.07-1.916V6.75" />
+                                                                                                                      0 01-2.25-2.25V6.75m19.5 0A2.25 2.25
+                                                                                                                      0 0019.5 4.5h-15a2.25 2.25 0 00-2.25
+                                                                                                                      2.25m19.5 0v.243a2.25 2.25 0 01-1.07
+                                                                                                                      1.916l-7.5 4.615a2.25 2.25 0
+                                                                                                                      01-2.36 0L3.32 8.91a2.25 2.25
+                                                                                                                      0 01-1.07-1.916V6.75" />
                                 </svg>
                             </a>
 
@@ -767,12 +743,63 @@
                                     stroke-width="1.8" stroke="currentColor">
                                     <path stroke-linecap="round" stroke-linejoin="round"
                                         d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25
-                                                                                                                  0 01-2.25-2.25V6.75m19.5 0A2.25 2.25
-                                                                                                                  0 0019.5 4.5h-15a2.25 2.25 0 00-2.25
-                                                                                                                  2.25m19.5 0v.243a2.25 2.25 0 01-1.07
-                                                                                                                  1.916l-7.5 4.615a2.25 2.25 0
-                                                                                                                  01-2.36 0L3.32 8.91a2.25 2.25
-                                                                                                                  0 01-1.07-1.916V6.75" />
+                                                                                                                      0 01-2.25-2.25V6.75m19.5 0A2.25 2.25
+                                                                                                                      0 0019.5 4.5h-15a2.25 2.25 0 00-2.25
+                                                                                                                      2.25m19.5 0v.243a2.25 2.25 0 01-1.07
+                                                                                                                      1.916l-7.5 4.615a2.25 2.25 0
+                                                                                                                      01-2.36 0L3.32 8.91a2.25 2.25
+                                                                                                                      0 01-1.07-1.916V6.75" />
+                                </svg>
+                            </a>
+
+                            <!-- Read More -->
+                            <a href="#"
+                                class="inline-flex items-center px-4 py-2 bg-emerald-50
+                                  text-emerald-700 font-semibold rounded-full text-sm
+                                  hover:bg-emerald-100 transition">
+                                আরও পড়ুন
+                                <svg class="w-4 h-4 ml-1" fill="none" viewBox="0 0 24 24" stroke-width="2"
+                                    stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M17.25 8.25L21 12l-3.75 3.75M21 12H3" />
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div
+                    class="flex items-center gap-6 bg-white/80 backdrop-blur-xl border border-slate-100
+                        p-6 rounded-3xl shadow-lg hover:shadow-2xl hover:-translate-y-1
+                        transition-all duration-300">
+
+                    <!-- Image -->
+                    <img src="{{ asset('assets/images/students/student1.webp') }}"
+                        class="w-28 h-28 object-cover rounded-2xl shadow-md">
+
+                    <!-- Info -->
+                    <div class="flex-1">
+                        <h4 class="text-xl font-bold text-gray-900">Atikur Rahman</h4>
+                        <p class="text-gray-500 text-sm">Class : Play</p>
+                        <p class="text-gray-500 text-sm">Roll : 03</p>
+                        <p class="text-gray-500 text-sm mb-4">Session : Jan 2025 - Dec 2025</p>
+
+                        <!-- Buttons -->
+                        <div class="flex items-center gap-3">
+
+                            <!-- Mail Button -->
+                            <a href="mailto:atikur@example.com"
+                                class="flex items-center justify-center h-9 w-9 bg-emerald-100
+                                  rounded-xl hover:bg-emerald-200 transition">
+                                <svg class="w-5 h-5 text-emerald-700" fill="none" viewBox="0 0 24 24"
+                                    stroke-width="1.8" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25
+                                                                                                                      0 01-2.25-2.25V6.75m19.5 0A2.25 2.25
+                                                                                                                      0 0019.5 4.5h-15a2.25 2.25 0 00-2.25
+                                                                                                                      2.25m19.5 0v.243a2.25 2.25 0 01-1.07
+                                                                                                                      1.916l-7.5 4.615a2.25 2.25 0
+                                                                                                                      01-2.36 0L3.32 8.91a2.25 2.25
+                                                                                                                      0 01-1.07-1.916V6.75" />
                                 </svg>
                             </a>
 
@@ -870,7 +897,7 @@
 
             to {
                 /* We change this to -50% because we have 2 sets of data.
-                               When we move 50%, the second set is exactly where the first set started. */
+                                   When we move 50%, the second set is exactly where the first set started. */
                 transform: translateX(-50%);
             }
         }
