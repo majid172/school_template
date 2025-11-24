@@ -23,6 +23,8 @@ Route::get('teachers',[TeacherController::class,'list'])->name('teachers.list');
 Route::get('show-teacher/{id}',[TeacherController::class,'show'])->name('teacher.show');
 
 Route::get('blogs',[BlogController::class,'list'])->name('blogs.list');
-Route::get('blog/{blog}/show', [BlogController::class, 'show'])
+Route::get('/blog/{blog}/{slug}', [BlogController::class, 'show'])
     ->name('blog.show');
+
+
 
