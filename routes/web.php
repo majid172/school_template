@@ -6,6 +6,7 @@ use App\Http\Controllers\ContactController;
 use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Notice\NoticeController;
+use App\Http\Controllers\StudentController;
 use App\Http\Controllers\Teachers\TeacherController;
 use Illuminate\Support\Facades\Route;
 
@@ -25,6 +26,8 @@ Route::get('show-teacher/{id}',[TeacherController::class,'show'])->name('teacher
 Route::get('blogs',[BlogController::class,'list'])->name('blogs.list');
 Route::get('/blog/{blog}/{slug}', [BlogController::class, 'show'])
     ->name('blog.show');
+
+Route::get('list',[StudentController::class,'list'])->name('student.list');
 
 
 

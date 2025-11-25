@@ -159,7 +159,7 @@
                             @foreach ($messages as $item)
                                 <div class="bg-white p-6 rounded-xl border border-gray-200">
                                     <div class="flex gap-4">
-                                        <img src="data:image/jpeg;base64,{{ base64_encode($item->image) }}"
+                                        <img src="data:image/jpeg;base64,{{ base64_encode($item->photo) }}"
                                             alt="{{ $item->name }}"
                                             class="w-24 h-24 rounded-full object-cover flex-shrink-0" />
 
@@ -202,7 +202,7 @@
                             নোটিশ বোর্ড
                         </h3>
                         <ul class="space-y-3">
-                            @foreach ($notices as $notice)
+                            @forelse ($notices as $notice)
                                 <li
                                     class="flex justify-between items-center text-sm p-2 border-b border-gray-100 last:border-b-0">
                                     <span class="flex items-center gap-3 text-gray-700">
@@ -221,7 +221,27 @@
                                         বিস্তারিত
                                     </a>
                                 </li>
-                            @endforeach
+
+                                @empty
+                                <li
+                                    class="flex justify-between items-center text-sm p-2 border-b border-gray-100 last:border-b-0">
+                                    <span class="flex items-center gap-3 text-gray-700">
+                                        <span class="flex-shrink-0 bg-red-100 text-red-600 rounded-full p-1.5">
+                                            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path fill-rule="evenodd"
+                                                    d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 3.001-1.742 3.001H4.42c-1.53 0-2.493-1.667-1.743-3.001l5.58-9.92zM10 13a1 1 0 110-2 1 1 0 010 2zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z"
+                                                    clip-rule="evenodd"></path>
+                                            </svg>
+                                        </span>
+                                        No notice found
+                                    </span>
+                                    <a href="javascript:void(0)"
+                                        class="flex-shrink-0 bg-teal-50 text-teal-600 px-3 py-1 rounded-full text-xs font-semibold hover:bg-teal-100 transition">
+                                        বিস্তারিত
+                                    </a>
+                                </li>
+                            @endforelse
                         </ul>
                         <a href="{{ route('notice.list') }}"
                             class="w-full mt-6 bg-teal-600 text-white text-center block py-2 rounded-md font-semibold hover:bg-teal-700 transition-colors">
@@ -609,219 +629,6 @@
 
 
 
-    <section class="bg-slate-100 py-16">
-        <div class="container mx-auto px-4">
-
-            <div class="flex justify-between items-center mb-10">
-                <h4 class="text-3xl font-extrabold text-gray-800">সেরা ছাত্র</h4>
-            </div>
-
-            <div class="grid sm:grid-cols-1 lg:grid-cols-4 xl:grid-cols-4 gap-6">
-                <div
-                    class="flex items-center gap-6 bg-white/80 backdrop-blur-xl border border-slate-100
-                        p-6 rounded-3xl shadow-lg hover:shadow-2xl hover:-translate-y-1
-                        transition-all duration-300">
-
-                    <!-- Image -->
-                    <img src="{{ asset('assets/images/students/student1.webp') }}"
-                        class="w-28 h-28 object-cover rounded-2xl shadow-md">
-
-                    <div class="flex-1">
-                        <h4 class="text-xl font-bold text-gray-900">Atikur Rahman</h4>
-                        <p class="text-gray-500 text-sm">Class : Play</p>
-                        <p class="text-gray-500 text-sm">Roll : 03</p>
-                        <p class="text-gray-500 text-sm mb-4">Session : Jan 2025 - Dec 2025</p>
-
-                        <!-- Buttons -->
-                        <div class="flex items-center gap-3">
-
-                            <!-- Mail Button -->
-                            <a href="mailto:atikur@example.com"
-                                class="flex items-center justify-center h-9 w-9 bg-emerald-100
-                                  rounded-xl hover:bg-emerald-200 transition">
-                                <svg class="w-5 h-5 text-emerald-700" fill="none" viewBox="0 0 24 24"
-                                    stroke-width="1.8" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round"
-                                        d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25
-                                                                                                                      0 01-2.25-2.25V6.75m19.5 0A2.25 2.25
-                                                                                                                      0 0019.5 4.5h-15a2.25 2.25 0 00-2.25
-                                                                                                                      2.25m19.5 0v.243a2.25 2.25 0 01-1.07
-                                                                                                                      1.916l-7.5 4.615a2.25 2.25 0
-                                                                                                                      01-2.36 0L3.32 8.91a2.25 2.25
-                                                                                                                      0 01-1.07-1.916V6.75" />
-                                </svg>
-                            </a>
-
-                            <!-- Read More -->
-                            <a href="#"
-                                class="inline-flex items-center px-4 py-2 bg-emerald-50
-                                  text-emerald-700 font-semibold rounded-full text-sm
-                                  hover:bg-emerald-100 transition">
-                                আরও পড়ুন
-                                <svg class="w-4 h-4 ml-1" fill="none" viewBox="0 0 24 24" stroke-width="2"
-                                    stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round"
-                                        d="M17.25 8.25L21 12l-3.75 3.75M21 12H3" />
-                                </svg>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div
-                    class="flex items-center gap-6 bg-white/80 backdrop-blur-xl border border-slate-100
-                        p-6 rounded-3xl shadow-lg hover:shadow-2xl hover:-translate-y-1
-                        transition-all duration-300">
-
-                    <img src="{{ asset('assets/images/students/student1.webp') }}"
-                        class="w-28 h-28 object-cover rounded-2xl shadow-md">
-
-                    <div class="flex-1">
-                        <h4 class="text-xl font-bold text-gray-900">Atikur Rahman</h4>
-                        <p class="text-gray-500 text-sm">Class : Play</p>
-                        <p class="text-gray-500 text-sm">Roll : 03</p>
-                        <p class="text-gray-500 text-sm mb-4">Session : Jan 2025 - Dec 2025</p>
-
-                        <!-- Buttons -->
-                        <div class="flex items-center gap-3">
-
-                            <!-- Mail Button -->
-                            <a href="mailto:atikur@example.com"
-                                class="flex items-center justify-center h-9 w-9 bg-emerald-100
-                                  rounded-xl hover:bg-emerald-200 transition">
-                                <svg class="w-5 h-5 text-emerald-700" fill="none" viewBox="0 0 24 24"
-                                    stroke-width="1.8" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round"
-                                        d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25
-                                                                                                                      0 01-2.25-2.25V6.75m19.5 0A2.25 2.25
-                                                                                                                      0 0019.5 4.5h-15a2.25 2.25 0 00-2.25
-                                                                                                                      2.25m19.5 0v.243a2.25 2.25 0 01-1.07
-                                                                                                                      1.916l-7.5 4.615a2.25 2.25 0
-                                                                                                                      01-2.36 0L3.32 8.91a2.25 2.25
-                                                                                                                      0 01-1.07-1.916V6.75" />
-                                </svg>
-                            </a>
-
-                            <!-- Read More -->
-                            <a href="#"
-                                class="inline-flex items-center px-4 py-2 bg-emerald-50
-                                  text-emerald-700 font-semibold rounded-full text-sm
-                                  hover:bg-emerald-100 transition">
-                                আরও পড়ুন
-                                <svg class="w-4 h-4 ml-1" fill="none" viewBox="0 0 24 24" stroke-width="2"
-                                    stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round"
-                                        d="M17.25 8.25L21 12l-3.75 3.75M21 12H3" />
-                                </svg>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div
-                    class="flex items-center gap-6 bg-white/80 backdrop-blur-xl border border-slate-100
-                        p-6 rounded-3xl shadow-lg hover:shadow-2xl hover:-translate-y-1
-                        transition-all duration-300">
-
-                    <!-- Image -->
-                    <img src="{{ asset('assets/images/students/student1.webp') }}"
-                        class="w-28 h-28 object-cover rounded-2xl shadow-md">
-
-                    <!-- Info -->
-                    <div class="flex-1">
-                        <h4 class="text-xl font-bold text-gray-900">Atikur Rahman</h4>
-                        <p class="text-gray-500 text-sm">Class : Play</p>
-                        <p class="text-gray-500 text-sm">Roll : 03</p>
-                        <p class="text-gray-500 text-sm mb-4">Session : Jan 2025 - Dec 2025</p>
-
-                        <!-- Buttons -->
-                        <div class="flex items-center gap-3">
-
-                            <!-- Mail Button -->
-                            <a href="mailto:atikur@example.com"
-                                class="flex items-center justify-center h-9 w-9 bg-emerald-100
-                                  rounded-xl hover:bg-emerald-200 transition">
-                                <svg class="w-5 h-5 text-emerald-700" fill="none" viewBox="0 0 24 24"
-                                    stroke-width="1.8" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round"
-                                        d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25
-                                                                                                                      0 01-2.25-2.25V6.75m19.5 0A2.25 2.25
-                                                                                                                      0 0019.5 4.5h-15a2.25 2.25 0 00-2.25
-                                                                                                                      2.25m19.5 0v.243a2.25 2.25 0 01-1.07
-                                                                                                                      1.916l-7.5 4.615a2.25 2.25 0
-                                                                                                                      01-2.36 0L3.32 8.91a2.25 2.25
-                                                                                                                      0 01-1.07-1.916V6.75" />
-                                </svg>
-                            </a>
-
-                            <!-- Read More -->
-                            <a href="#"
-                                class="inline-flex items-center px-4 py-2 bg-emerald-50
-                                  text-emerald-700 font-semibold rounded-full text-sm
-                                  hover:bg-emerald-100 transition">
-                                আরও পড়ুন
-                                <svg class="w-4 h-4 ml-1" fill="none" viewBox="0 0 24 24" stroke-width="2"
-                                    stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round"
-                                        d="M17.25 8.25L21 12l-3.75 3.75M21 12H3" />
-                                </svg>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div
-                    class="flex items-center gap-6 bg-white/80 backdrop-blur-xl border border-slate-100
-                        p-6 rounded-3xl shadow-lg hover:shadow-2xl hover:-translate-y-1
-                        transition-all duration-300">
-
-                    <!-- Image -->
-                    <img src="{{ asset('assets/images/students/student1.webp') }}"
-                        class="w-28 h-28 object-cover rounded-2xl shadow-md">
-
-                    <!-- Info -->
-                    <div class="flex-1">
-                        <h4 class="text-xl font-bold text-gray-900">Atikur Rahman</h4>
-                        <p class="text-gray-500 text-sm">Class : Play</p>
-                        <p class="text-gray-500 text-sm">Roll : 03</p>
-                        <p class="text-gray-500 text-sm mb-4">Session : Jan 2025 - Dec 2025</p>
-
-                        <!-- Buttons -->
-                        <div class="flex items-center gap-3">
-
-                            <!-- Mail Button -->
-                            <a href="mailto:atikur@example.com"
-                                class="flex items-center justify-center h-9 w-9 bg-emerald-100
-                                  rounded-xl hover:bg-emerald-200 transition">
-                                <svg class="w-5 h-5 text-emerald-700" fill="none" viewBox="0 0 24 24"
-                                    stroke-width="1.8" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round"
-                                        d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25
-                                                                                                                      0 01-2.25-2.25V6.75m19.5 0A2.25 2.25
-                                                                                                                      0 0019.5 4.5h-15a2.25 2.25 0 00-2.25
-                                                                                                                      2.25m19.5 0v.243a2.25 2.25 0 01-1.07
-                                                                                                                      1.916l-7.5 4.615a2.25 2.25 0
-                                                                                                                      01-2.36 0L3.32 8.91a2.25 2.25
-                                                                                                                      0 01-1.07-1.916V6.75" />
-                                </svg>
-                            </a>
-
-                            <!-- Read More -->
-                            <a href="#"
-                                class="inline-flex items-center px-4 py-2 bg-emerald-50
-                                  text-emerald-700 font-semibold rounded-full text-sm
-                                  hover:bg-emerald-100 transition">
-                                আরও পড়ুন
-                                <svg class="w-4 h-4 ml-1" fill="none" viewBox="0 0 24 24" stroke-width="2"
-                                    stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round"
-                                        d="M17.25 8.25L21 12l-3.75 3.75M21 12H3" />
-                                </svg>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <!-- Copy the same structure for other students -->
-            </div>
-        </div>
-    </section>
 
     <section class="bg-slate-50 py-16">
         <div class="container mx-auto px-4">

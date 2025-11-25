@@ -1,4 +1,4 @@
-    <!-- Footer -->
+
     <footer class="bg-gray-800 text-gray-300">
         <div class="container mx-auto px-4 py-12">
             <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
@@ -20,7 +20,7 @@
                         <a href="{{ route('gallery.list') }}" class="hover:text-brand-green">গ্যালারি</a>
                        <a href="{{ route('teachers.list') }}" class="hover:text-brand-green">আমাদের শিক্ষকরা</a>
                        <a href="{{ route('blogs.list') }}" class="hover:text-brand-green">ব্লগ </a>
-                        <a href="#" class="hover:text-brand-green">চলমান শিক্ষার্থীরা</a>
+                        <a href="{{ route('student.list') }}" class="hover:text-brand-green">চলমান শিক্ষার্থীরা</a>
                         
                         <a href="{{ route('notice.list') }}" class="hover:text-brand-green">নোটিশ</a>
                     </div>
@@ -33,19 +33,19 @@
                            <div class="bg-gray-700 p-2 rounded-md mt-1">
                             <i class="fa-solid fa-map-pin text-brand-green"></i>
                            </div>
-                            <span>Poyla Baniyabari, Mahmudpur, Melandah, Jamalpur</span>
+                            <span>{{ settings()->address }}</span>
                         </li>
                          <li class="flex items-start gap-3">
                            <div class="bg-gray-700 p-2 rounded-md">
                             <i class="fa-solid fa-phone-flip text-brand-green"></i>
                            </div>
-                            <span>222222222212</span>
+                            <span>{{ settings()->phone }}</span>
                         </li>
                          <li class="flex items-start gap-3">
                            <div class="bg-gray-700 p-2 rounded-md">
                             <i class="fa-regular fa-envelope text-brand-green h-5 w-5"></i>
                            </div>
-                            <span>abc@gmail.com</span>
+                            <span>{{ settings()->email }}</span>
                         </li>
                         
                     </ul>
@@ -54,8 +54,8 @@
         </div>
         <div class="bg-gray-900 py-4">
             <div class="container mx-auto px-4 text-center text-sm text-gray-400">
-                &copy; 2025 <a href="#" class="text-brand-green font-semibold">EMS</a>. All right reserved.
-                Designed by: <a href="#" class="text-brand-green font-semibold">BINARY IT Limited</a>
+                &copy; {{ date('Y') }} <a href="javascript:void(0)" class="text-brand-green font-semibold">EMS</a>. All right reserved.
+                Designed by: <a href="javascript:void(0)" class="text-brand-green font-semibold">BINARY IT Limited</a>
             </div>
         </div>
     </footer>

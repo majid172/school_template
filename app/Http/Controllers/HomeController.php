@@ -29,6 +29,7 @@ class HomeController extends Controller
         $banners = WebBanner::where('status', 1)->orderBy('order', 'asc')->get();
         $about = WebAboutUs::first();
         $messages = WebMessage::get();
+
         $notices = WebGeneralNotice::limit(4)->orderBy('created_at', 'desc')->get();
         $teachers = $this->teacherService->list(4);
         $galleries = $this->galleryService->list();

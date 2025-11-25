@@ -3,11 +3,10 @@
 
         <!-- Logo and Site Name -->
         <div class="flex items-center space-x-2">
-            <img src="" alt="Logo" class="h-10">
-            <span class="font-bold text-lg text-gray-800"></span>
+            <img src="data:image/jpeg;base64,{{ base64_encode(settings()->logo) }}" alt="Logo" class="h-10">
+            <span class="font-bold text-lg text-gray-800">{{ settings()->school_name }}</span>
         </div>
 
-        <!-- Desktop Navigation -->
         <div class="hidden lg:flex items-center space-x-8 text-gray-700 font-medium">
 
             {{-- Home --}}
@@ -47,7 +46,7 @@
             {{-- শিক্ষার্থী --}}
             <div class="relative group">
                 <a href="#"
-                    class="flex items-center gap-1 hover:text-brand-green">
+                    class="flex items-center gap-1 {{ request()->routeIs('student.list') ? 'text-brand-green font-bold' : 'hover:text-brand-green' }}">
                     <span>শিক্ষার্থী</span>
                     <svg xmlns="http://www.w3.org/2000/svg"
                         class="h-4 w-4 transition-transform duration-300 group-hover:rotate-180"
@@ -59,9 +58,9 @@
 
                 <div
                     class="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-48 bg-white rounded-md shadow-lg py-1 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-10 border border-gray-100">
-                    <a href="#"
+                    <a href="{{ route('student.list') }}"
                         class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-brand-green">
-                        ছাত্রছাত্রীর তথ্য
+                        অধ্যয়নরত শিক্ষার্থীর সংখ্যা
                     </a>
                 </div>
             </div>
@@ -120,7 +119,7 @@
                         রুটিন
                     </a>
 
-                    <a href="#"
+                    <a href="javascript:void(0)"
                         class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-brand-green">
                         একাডেমিক ক্যালেন্ডার
                     </a>
