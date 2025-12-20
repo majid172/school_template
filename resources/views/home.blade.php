@@ -97,15 +97,15 @@
                         <div class="relative flex flex-col md:flex-row items-center">
 
                             <div class="w-full md:w-3/5 flex-shrink-0">
-                                <img src="data:image/jpeg;base64,{{ base64_encode($about->image) }}" alt="School Building"
+                                <img src="{{ ($about && $about->image) ? 'data:image/jpeg;base64,' . base64_encode($about->image) : asset('assets/images/campus.jpg') }}" alt="School Building"
                                     class="w-full h-80 object-cover rounded-xl shadow-md">
 
                             </div>
                             <!-- Text Box -->
                             <div
                                 class="w-full md:w-3/5 bg-white p-8 rounded-xl shadow-lg md:-ml-20 mt-[-40px] md:mt-0 relative z-10">
-                                <h2 class="text-2xl font-bold text-gray-800 mb-4">{{ $about->title }}</h2>
-                                <p class="text-gray-600 leading-relaxed text-sm mb-6">{{ $about->short_description }}</p>
+                                <h2 class="text-2xl font-bold text-gray-800 mb-4">{{ $about->title ?? 'About Our School' }}</h2>
+                                <p class="text-gray-600 leading-relaxed text-sm mb-6">{{ $about->short_description ?? 'Welcome to our institution. We are dedicated to providing quality education and fostering potential in every child.' }}</p>
                                 <a href="{{ route('about') }}"
                                     class="inline-block bg-teal-50 text-teal-600 font-semibold px-5 py-2 rounded-full text-sm hover:bg-teal-100 transition-colors">
                                     বিস্তারিত পড়ুন
@@ -136,8 +136,8 @@
                             @foreach ($messages as $item)
                                 <div class="bg-white p-6 rounded-xl border border-gray-200">
                                     <div class="flex gap-4">
-                                        <img src="data:image/jpeg;base64,{{ base64_encode($item->image) }}"
-                                            alt="{{ $item->name }}"
+                                        <img src="{{ ($item && $item->image) ? 'data:image/jpeg;base64,' . base64_encode($item->image) : asset('assets/images/teachers/principle.jpg') }}"
+                                            alt="{{ $item->name ?? 'Director' }}"
                                             class="w-24 h-24 rounded-full object-cover flex-shrink-0" />
 
                                         <div class="relative">
@@ -266,7 +266,7 @@
 
                         <div class="flex flex-col h-full">
                             <div>
-                                <h3 class="text-lg font-bold text-gray-900">{{ $item->first_name.' '. $item->last_name }}</h3>
+                                <h3 class="text-lg font-bold text-gray-900">{{ $item->name_en }}</h3>
                                 <p class="text-sm text-gray-500 mb-3">({{ $item->designation }})</p>
                             </div>
 
@@ -401,8 +401,8 @@
 
                 <!-- Student Card -->
                 <div
-                    class="flex items-center gap-6 bg-white/80 backdrop-blur-xl border border-slate-100 
-                        p-6 rounded-3xl shadow-lg hover:shadow-2xl hover:-translate-y-1 
+                    class="flex items-center gap-6 bg-white/80 backdrop-blur-xl border border-slate-100
+                        p-6 rounded-3xl shadow-lg hover:shadow-2xl hover:-translate-y-1
                         transition-all duration-300">
 
                     <!-- Image -->
@@ -421,7 +421,7 @@
 
                             <!-- Mail Button -->
                             <a href="mailto:atikur@example.com"
-                                class="flex items-center justify-center h-9 w-9 bg-emerald-100 
+                                class="flex items-center justify-center h-9 w-9 bg-emerald-100
                                   rounded-xl hover:bg-emerald-200 transition">
                                 <svg class="w-5 h-5 text-emerald-700" fill="none" viewBox="0 0 24 24"
                                     stroke-width="1.8" stroke="currentColor">
@@ -437,7 +437,7 @@
 
                             <!-- Read More -->
                             <a href="#"
-                                class="inline-flex items-center px-4 py-2 bg-emerald-50 
+                                class="inline-flex items-center px-4 py-2 bg-emerald-50
                                   text-emerald-700 font-semibold rounded-full text-sm
                                   hover:bg-emerald-100 transition">
                                 আরও পড়ুন
@@ -451,8 +451,8 @@
                     </div>
                 </div>
                 <div
-                    class="flex items-center gap-6 bg-white/80 backdrop-blur-xl border border-slate-100 
-                        p-6 rounded-3xl shadow-lg hover:shadow-2xl hover:-translate-y-1 
+                    class="flex items-center gap-6 bg-white/80 backdrop-blur-xl border border-slate-100
+                        p-6 rounded-3xl shadow-lg hover:shadow-2xl hover:-translate-y-1
                         transition-all duration-300">
 
                     <!-- Image -->
@@ -471,7 +471,7 @@
 
                             <!-- Mail Button -->
                             <a href="mailto:atikur@example.com"
-                                class="flex items-center justify-center h-9 w-9 bg-emerald-100 
+                                class="flex items-center justify-center h-9 w-9 bg-emerald-100
                                   rounded-xl hover:bg-emerald-200 transition">
                                 <svg class="w-5 h-5 text-emerald-700" fill="none" viewBox="0 0 24 24"
                                     stroke-width="1.8" stroke="currentColor">
@@ -487,7 +487,7 @@
 
                             <!-- Read More -->
                             <a href="#"
-                                class="inline-flex items-center px-4 py-2 bg-emerald-50 
+                                class="inline-flex items-center px-4 py-2 bg-emerald-50
                                   text-emerald-700 font-semibold rounded-full text-sm
                                   hover:bg-emerald-100 transition">
                                 আরও পড়ুন
@@ -501,8 +501,8 @@
                     </div>
                 </div>
                 <div
-                    class="flex items-center gap-6 bg-white/80 backdrop-blur-xl border border-slate-100 
-                        p-6 rounded-3xl shadow-lg hover:shadow-2xl hover:-translate-y-1 
+                    class="flex items-center gap-6 bg-white/80 backdrop-blur-xl border border-slate-100
+                        p-6 rounded-3xl shadow-lg hover:shadow-2xl hover:-translate-y-1
                         transition-all duration-300">
 
                     <!-- Image -->
@@ -521,7 +521,7 @@
 
                             <!-- Mail Button -->
                             <a href="mailto:atikur@example.com"
-                                class="flex items-center justify-center h-9 w-9 bg-emerald-100 
+                                class="flex items-center justify-center h-9 w-9 bg-emerald-100
                                   rounded-xl hover:bg-emerald-200 transition">
                                 <svg class="w-5 h-5 text-emerald-700" fill="none" viewBox="0 0 24 24"
                                     stroke-width="1.8" stroke="currentColor">
@@ -537,7 +537,7 @@
 
                             <!-- Read More -->
                             <a href="#"
-                                class="inline-flex items-center px-4 py-2 bg-emerald-50 
+                                class="inline-flex items-center px-4 py-2 bg-emerald-50
                                   text-emerald-700 font-semibold rounded-full text-sm
                                   hover:bg-emerald-100 transition">
                                 আরও পড়ুন
@@ -551,8 +551,8 @@
                     </div>
                 </div>
                 <div
-                    class="flex items-center gap-6 bg-white/80 backdrop-blur-xl border border-slate-100 
-                        p-6 rounded-3xl shadow-lg hover:shadow-2xl hover:-translate-y-1 
+                    class="flex items-center gap-6 bg-white/80 backdrop-blur-xl border border-slate-100
+                        p-6 rounded-3xl shadow-lg hover:shadow-2xl hover:-translate-y-1
                         transition-all duration-300">
 
                     <!-- Image -->
@@ -571,7 +571,7 @@
 
                             <!-- Mail Button -->
                             <a href="mailto:atikur@example.com"
-                                class="flex items-center justify-center h-9 w-9 bg-emerald-100 
+                                class="flex items-center justify-center h-9 w-9 bg-emerald-100
                                   rounded-xl hover:bg-emerald-200 transition">
                                 <svg class="w-5 h-5 text-emerald-700" fill="none" viewBox="0 0 24 24"
                                     stroke-width="1.8" stroke="currentColor">
@@ -587,7 +587,7 @@
 
                             <!-- Read More -->
                             <a href="#"
-                                class="inline-flex items-center px-4 py-2 bg-emerald-50 
+                                class="inline-flex items-center px-4 py-2 bg-emerald-50
                                   text-emerald-700 font-semibold rounded-full text-sm
                                   hover:bg-emerald-100 transition">
                                 আরও পড়ুন
