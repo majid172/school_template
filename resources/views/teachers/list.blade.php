@@ -8,25 +8,20 @@
 
             <div class="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-8">
                 @foreach ($teachers as $item)
-                    <!-- Teacher Profile Card -->
                     <div
                         class="bg-white rounded-xl shadow-lg flex overflow-hidden hover:shadow-xl transition-all duration-300">
 
-                        <!-- Image Section -->
                         <div class="w-2/5 flex-shrink-0">
-                            <img src="{{ asset('assets/images/teachers/teacher1.jpg') }}" class="w-full h-full object-cover"
-                                alt="{{ $item->first_name }}">
+                            <img src="data:image/jpeg;base64,{{ base64_encode($item->photo) }}" class="w-full h-full object-cover"
+                                alt="{{ $item->name_en }}">
                         </div>
 
-                        <!-- Info Section -->
                         <div class="flex-1 p-6 flex flex-col space-y-3">
-                            <h3 class="text-2xl font-bold text-gray-800">{{ $item->first_name . ' ' . $item->last_name }}
+                            <h3 class="text-2xl font-bold text-gray-800">{{ $item->name_en }} ( {{ __($item->name_bn) }})
                             </h3>
                             <p class="text-gray-500">( {{ $item->designation }} )</p>
 
-                            <!-- Social Icons -->
                             <div class="flex items-center space-x-2 pt-1">
-                                <!-- Phone -->
                                 <a href="javascript:void(0)"
                                     class="flex items-center justify-center h-8 w-8 bg-green-500 rounded-md hover:bg-green-600 transition-colors">
                                     <svg class="w-5 h-5 text-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
@@ -36,7 +31,6 @@
                                         </path>
                                     </svg>
                                 </a>
-                                <!-- Email -->
                                 <a href="mailto:{{ $item->email }}"
                                     class="flex items-center justify-center h-8 w-8 bg-green-500 rounded-md hover:bg-green-600 transition-colors">
                                     <svg class="w-5 h-5 text-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"

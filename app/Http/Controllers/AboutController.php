@@ -29,7 +29,7 @@ class AboutController extends Controller
     {
         $title = "পরিচালকদের বাণী";
         $messages = DB::table('web_messages')->get();
-        // dd($principal_message);
+        
         return view('principal_speech',compact('title','messages'));
     }
 }

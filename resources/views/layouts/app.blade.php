@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Empowerment Bangladesh</title>
+    <title>{{ settings()->school_name }}</title>
     {{-- <script src="https://cdn.tailwindcss.com"></script> --}}
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,6 +14,7 @@
         integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link href="https://cdn.jsdelivr.net/npm/flowbite@4.0.1/dist/flowbite.min.css" rel="stylesheet" />
+    <link rel="icon" href="{{ asset('assets/images/icon.jpg') }}" type="image/x-icon">
 
     <style>
         body {
@@ -39,7 +40,7 @@
     @vite('resources/css/app.css')
 </head>
 
-<body class="bg-gray-50">
+<body class="bg-gray-50 min-h-screen">
 
      <div id="preloader"
         class="fixed inset-0 bg-white z-[9999] flex items-center justify-center transition-all duration-500">
@@ -73,6 +74,7 @@
             }, 500);
         });
     </script>
+    @stack('scripts')
 </body>
 
 </html>

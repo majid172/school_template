@@ -18,6 +18,7 @@ class TeacherController extends Controller
     {
         $title    = "শিক্ষকগণ";
         $teachers = $this->teacherService->list();
+        // dd($teachers->toArray());
         return view('teachers.list', compact('title', 'teachers'));
     }
     public function show($id)
@@ -31,8 +32,8 @@ class TeacherController extends Controller
             ->join('designations', 'department_designation.designation_id', '=', 'designations.id')
             ->select(
                 'teachers.*',
-                'staff.first_name',
-                'staff.last_name',
+                'staff.name_en',
+                'staff.name_bn',
                 'staff.email',
                 'staff.phone',
                 'staff.photo',
@@ -44,7 +45,7 @@ class TeacherController extends Controller
             )
 
             ->first();
-
+// dd($teacher);
         return view('teachers.show', compact('title', 'teacher'));
     }
 }

@@ -111,13 +111,13 @@
                     <div class="w-full md:w-1/2">
                         <h2 class="text-3xl font-bold text-gray-800 border-l-4 border-brand-green pl-4 mb-4">আমাদের মিশন
                         </h2>
-                        <p class="text-gray-600">{!! $mission->description !!}</p>
+                        <p class="text-gray-600">{!! @$mission->description !!}</p>
                     </div>
 
                     <div class="flex-shrink-0 w-full md:w-1/2">
                         <div class="relative w-full h-100 rounded-3xl overflow-hidden">
-                            <img src="data:image/jpeg;base64,{{ base64_encode($mission->image) }}"
-                                alt="{{ $mission->title }}" class="absolute w-full h-full object-cover">
+                            <img src="data:image/jpeg;base64,{{ base64_encode(@$mission->image) }}"
+                                alt="{{ @$mission->title }}" class="absolute w-full h-full object-cover">
                             {{-- <div class="absolute inset-0 bg-gray-800 bg-opacity-40"></div> --}}
                         </div>
                     </div>
@@ -138,7 +138,7 @@
                 <section class="flex flex-col md:flex-row items-center gap-8">
                     <div class="flex-shrink-0 w-full md:w-1/2">
                         <div class="relative w-full h-100 rounded-3xl overflow-hidden">
-                            <img src="data:image/jpeg;base64,{{ base64_encode($vision->image) }}" alt="{{ $vision->title }}"
+                            <img src="data:image/jpeg;base64,{{ base64_encode(@$vision->image) }}" alt="{{ @$vision->title }}"
                                 class="absolute w-full h-full object-cover">
                             {{-- <div class="absolute inset-0 bg-gray-800 bg-opacity-40"></div> --}}
                         </div>
@@ -146,7 +146,7 @@
                     <div class="w-full md:w-1/2">
                         <h2 class="text-3xl font-bold text-gray-800 border-l-4 border-brand-green pl-4 mb-4">আমাদের ভিশন
                         </h2>
-                        <p class="text-gray-600">{!! $vision->description !!}</p>
+                        <p class="text-gray-600">{!! @$vision->description !!}</p>
                     </div>
 
 

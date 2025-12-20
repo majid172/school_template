@@ -8,7 +8,7 @@
             <div class="max-w-6xl mx-auto bg-white p-8 md:p-10 shadow-lg rounded-lg">
                 <div class="flex flex-col md:flex-row md:gap-12 lg:gap-16">
                     <div class="md:w-1/4 flex-shrink-0 text-center md:text-left">
-                        <img src="data:image/jpeg;base64,{{ base64_encode($item->image) }}" alt="{{ $item->name }}"
+                        <img src="data:image/jpeg;base64,{{ base64_encode($item->photo) }}" alt="{{ $item->name }}"
                             class="w-32 h-32 object-cover rounded-full mx-auto md:mx-0 ring-4 ring-teal-100">
 
                         <!-- Name and Designation -->

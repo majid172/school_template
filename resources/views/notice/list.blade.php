@@ -22,7 +22,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($notices as $key => $item)
+                    @forelse ($notices as $key => $item)
                         <!-- Here, the stripes use a light tint of the header color -->
                         <tr class="odd:bg-white even:bg-teal-50 hover:bg-teal-100 transition-colors duration-200">
                             <td class="px-6 py-4 font-bold text-teal-700">
@@ -49,7 +49,13 @@
                                 </a>
                             </td>
                         </tr>
-                    @endforeach
+                    @empty
+                        <tr>
+                            <td colspan="4" class="text-center text-gray-500 py-4">
+                                কোন রেকর্ড পাওয়া যায়নি
+                            </td>
+                        </tr>
+                    @endforelse
                 </tbody>
             </table>
         </div>
