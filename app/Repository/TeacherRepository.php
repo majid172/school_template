@@ -16,8 +16,8 @@ class TeacherRepository
             ->join('designations', 'department_designation.designation_id', '=', 'designations.id')
             ->select(
                 'teachers.*',
-                'staff.first_name',
-                'staff.last_name',
+                'staff.name_en',
+                'staff.name_bn',
                 'staff.email',
                 'staff.phone',
                 'staff.photo',
