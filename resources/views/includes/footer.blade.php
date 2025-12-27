@@ -21,7 +21,7 @@
                        <a href="{{ route('teachers.list') }}" class="hover:text-brand-green">আমাদের শিক্ষকরা</a>
                        <a href="{{ route('blogs.list') }}" class="hover:text-brand-green">ব্লগ </a>
                         <a href="{{ route('student.list') }}" class="hover:text-brand-green">চলমান শিক্ষার্থীরা</a>
-                        
+
                         <a href="{{ route('notice.list') }}" class="hover:text-brand-green">নোটিশ</a>
                     </div>
                 </div>
@@ -47,7 +47,7 @@
                            </div>
                             <span>{{ settings()->email }}</span>
                         </li>
-                        
+
                     </ul>
                 </div>
             </div>
@@ -55,7 +55,7 @@
         <div class="bg-gray-900 py-4">
             <div class="container mx-auto px-4 text-center text-sm text-gray-400">
                 &copy; {{ date('Y') }} <a href="javascript:void(0)" class="text-brand-green font-semibold">EMS</a>. All right reserved.
-                Designed by: <a href="javascript:void(0)" class="text-brand-green font-semibold">BINARY IT Limited</a>
+                Designed by: <a href="javascript:void(0)" class="text-brand-green font-semibold">FL</a>
             </div>
         </div>
     </footer>
